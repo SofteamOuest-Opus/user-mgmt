@@ -1,0 +1,67 @@
+openapi: "3.0.2"
+info:
+  version: 0.1-preview
+  title: User Management
+  description: Retrieve various informations and personal data about employees in User Mgmt application in Softeam Opus
+  license:
+    name: MIT
+    url: https://github.com/SofteamOuest-Opus/user-mgmt/blob/master/LICENSE
+servers:
+  - url: http://user-mgmt.k8-dev.wildwidewest.xyz
+    description: Development server  
+
+paths:
+  /employees:
+    get:
+      summary: List all employees
+      operationId: listEmployees
+      responses:
+        '200':
+          description: An array of employees
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/Employees"
+
+  /employee/{id}:
+    get:
+      summary: Info for a specific employee
+      operationId: showEmployeeById
+    parameters:
+        - name: id
+          in: path
+          required: true
+          description: The id of employee to retrieve
+          schema:
+            type: string
+
+components:
+  schemas:
+    Employee:
+      required:
+        - id
+        - lastName
+        - firstName
+        - email
+      properties:
+        id:
+          type: string
+        lastName:
+          type: string
+        firstName:
+          type: string
+        email:
+          type: string
+
+        # Photo URL
+        # Office (Nantes/Rennes)
+        # Manager
+        # Human resource manager
+        # Status (Internship/Subcontractor/Freelancer)
+        # Function
+        # Access rights (Employee/Human resource manager/Top management)
+
+    Employees:
+      type: array
+      items:
+        $ref: "#/components/schemas/Employee"
