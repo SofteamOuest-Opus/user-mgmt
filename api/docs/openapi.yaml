@@ -17,23 +17,52 @@ paths:
       operationId: listEmployees
       responses:
         '200':
-          description: An array of employees
+          description: Success
           content:
             application/json:    
               schema:
                 $ref: "#/components/schemas/Employees"
 
+    post:
+      summary: Search for employees matching a given criteria
+      operationId: seachEmployees
+      parameters:
+        - name: id
+          in: body
+          required: true
+          description: Search criteria for employees
+          schema:
+            $ref: "#/components/schemas/EmployeeSearch"
+      responses:
+        '200':
+          description: Some employees found
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/Employees"
+        '404':
+          description: No employee matches given criteria
+
   /employee/{id}:
     get:
       summary: Info for a specific employee
       operationId: showEmployeeById
-    parameters:
+      parameters:
         - name: id
           in: path
           required: true
           description: The id of employee to retrieve
           schema:
             type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:    
+              schema:
+                $ref: "#/components/schemas/Employee"
+        '404':
+          description: No employee with such id
 
 components:
   schemas:
@@ -52,16 +81,73 @@ components:
           type: string
         email:
           type: string
-
-        # Photo URL
-        # Office (Nantes/Rennes)
-        # Manager
-        # Human resource manager
-        # Status (Internship/Subcontractor/Freelancer)
-        # Function
-        # Access rights (Employee/Human resource manager/Top management)
+        photoUri:
+          type: string
+        office:
+          $ref: "#/components/schemas/Office"
+        manager:
+          $ref: "#/components/schemas/Manager"
+        humanResourceManager:
+          $ref: "#/components/schemas/Manager"
+        status:
+          $ref: "#/components/schemas/Status"
+        function:
+          $ref: "#/components/schemas/Function"
+        accessRights:
+          type: array
+          items: 
+            type: string
 
     Employees:
       type: array
       items:
         $ref: "#/components/schemas/Employee"
+
+    Manager:
+      required:
+        - id
+      properties:
+        id:
+          type: string
+        lastName:
+          type: string
+        firstName:
+          type: string
+
+    Office:
+      required:
+        - id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+
+    Status:
+      required:
+        - id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+
+    Function:
+      required:
+        - id
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+
+    EmployeeSearch:
+      properties:
+        id:
+          type: string
+        lastName:
+          type: string
+        firstName:
+          type: string
+        email:
+          type: string
