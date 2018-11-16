@@ -1,0 +1,129 @@
+{
+    "namespace": "fr.softeam.opus.usermgmt",
+    "name": "Employees",
+    "type": "array",
+    "doc": "List of updated employees",
+    "items": {
+        "name": "Employee",
+        "type": "record",
+        "doc": "Updated employee",
+        "fields": [{
+            "name": "id",
+            "type": "string"
+        },
+        {
+            "name": "operation",
+            "type": {
+                "name": "Operation",
+                "type": "enum",
+                "symbols" : ["ADD", "UPDATE", "DELETE"]
+            }
+        },
+        {
+            "name": "lastName",
+            "type": "string"
+        },
+        {
+            "name": "firstName",
+            "type": "string"
+        },
+        {
+            "name": "email",
+            "type": "string"
+        },
+        {
+            "name": "photoUri",
+            "type": ["null", "string"]
+        },
+        {
+            "name": "office",
+            "type": {
+                "name": "Office",
+                "type": "record",
+                "fields": [{
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "name",
+                    "type": "string"
+                }]
+            }
+        },
+        {
+            "name": "manager",
+            "type": {
+                "name": "Manager",
+                "type": "record",
+                "fields": [{
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "lastName",
+                    "type": "string"
+                },
+                {
+                    "name": "firstName",
+                    "type": "string"
+                }]
+            }
+        },
+        {
+            "name": "humanResourceManager",
+            "type": {
+                "name": "HumanResourceManager",
+                "type": "record",
+                "fields": [{
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "lastName",
+                    "type": "string"
+                },
+                {
+                    "name": "firstName",
+                    "type": "string"
+                }]
+            }
+        },
+        {
+            "name": "status",
+            "type": {
+                "name": "Status",
+                "type": "record",
+                "fields": [{
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "name",
+                    "type": "string"
+                }]
+            }
+        },
+        {
+            "name": "function",
+            "type": {
+                "name": "Function",
+                "type": "record",
+                "fields": [{
+                    "name": "id",
+                    "type": "string"
+                },
+                {
+                    "name": "name",
+                    "type": "string"
+                }]
+            }
+        },
+        {
+            "name": "accessRights",
+            "type": {
+                "type": "array",
+                "items": "string"
+            }
+        }]
+    }
+}
