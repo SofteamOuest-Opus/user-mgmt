@@ -2,14 +2,18 @@
 
 User management application for Softeam Opus, consisting in:
 * a front-end app with web components
-* a back-end api in .Net Core / C#
-* a public api in .Net Core / C#
+* a back-end API in .Net Core / C#
+* a public API in .Net Core / C#
 
 ## Directory structure
 
 <dl>
+    <dt>`back/`<dt>
+    <dd>Back-end API</dd>
+</dl>
+<dl>
     <dt>`api/`<dt>
-    <dd>Public api</dd>
+    <dd>Public API</dd>
 </dl>
 
 ## How-to run
