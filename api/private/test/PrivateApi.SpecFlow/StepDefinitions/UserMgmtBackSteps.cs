@@ -1,10 +1,10 @@
 ﻿using System;
 using TechTalk.SpecFlow;
 
-namespace UserMgmtBack.SpecFlow.StepDefinitions
+namespace PrivateApi.SpecFlow.StepDefinitions
 {
     [Binding]
-    public class UserMgmtBackSteps
+    public class PrivateApiSteps
     {
         [Given(@"an Employee")]
         public void GivenAnEmployee()

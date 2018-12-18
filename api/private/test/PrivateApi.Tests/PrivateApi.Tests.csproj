@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\UserMgmtBack\UserMgmtBack.csproj" />
+    <ProjectReference Include="..\..\src\PrivateApi\PrivateApi.csproj" />
   </ItemGroup>
   
 </Project>

@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace UserMgmtBack.SpecFlow.Features
+namespace PrivateApi.SpecFlow.Features
 {
     using TechTalk.SpecFlow;
     

@@ -1,8 +1,8 @@
 using FluentAssertions;
 using NUnit.Framework;
-using UserMgmtBack.Controllers;
+using PrivateApi.Controllers;
 
-namespace UserMgmtBack.Tests.Controllers
+namespace PrivateApi.Tests.Controllers
 {
     public class ValuesControllerTest
     {

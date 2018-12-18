@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace UserMgmtBack.Controllers
+namespace PrivateApi.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
