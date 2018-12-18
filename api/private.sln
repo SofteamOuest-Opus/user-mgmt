@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FB3B6CE4-6FA0-4CE0-8312-FCFFB27F3FBC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "private\src", "{FB3B6CE4-6FA0-4CE0-8312-FCFFB27F3FBC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMgmtBack", "src\UserMgmtBack\UserMgmtBack.csproj", "{0A077120-56F3-42E2-920B-CF5008A923E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMgmtBack", "private\src\UserMgmtBack\UserMgmtBack.csproj", "{0A077120-56F3-42E2-920B-CF5008A923E6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{7C433FC0-D7CC-4432-B2F6-A4AE4BBB1EBE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "private\test", "{7C433FC0-D7CC-4432-B2F6-A4AE4BBB1EBE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMgmtBack.Tests", "test\UserMgmtBack.Tests\UserMgmtBack.Tests.csproj", "{C6952EF3-37C3-4AC0-9256-CF6FDA442338}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMgmtBack.Tests", "private\test\UserMgmtBack.Tests\UserMgmtBack.Tests.csproj", "{C6952EF3-37C3-4AC0-9256-CF6FDA442338}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMgmtBack.SpecFlow", "test\UserMgmtBack.SpecFlow\UserMgmtBack.SpecFlow.csproj", "{2F869EF5-4EE7-4E86-9412-28801CA21F9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMgmtBack.SpecFlow", "private\test\UserMgmtBack.SpecFlow\UserMgmtBack.SpecFlow.csproj", "{2F869EF5-4EE7-4E86-9412-28801CA21F9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
