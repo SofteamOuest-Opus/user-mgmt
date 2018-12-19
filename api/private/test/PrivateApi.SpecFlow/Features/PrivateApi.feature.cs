@@ -24,7 +24,7 @@ namespace PrivateApi.SpecFlow.Features
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "UserMgmtBack.feature"
+#line 1 "PrivateApi.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
