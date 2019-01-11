@@ -17,7 +17,7 @@ namespace PrivateApi.Tests.Controllers
         public class Get : ValuesControllerTest
         {
             [Test]
-            public void Test1()
+            public void ShouldReturn2Elements()
             {
                 // Act
                 var result = ControllerUnderTest.Get();
