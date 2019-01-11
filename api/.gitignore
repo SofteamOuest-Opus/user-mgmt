@@ -4,9 +4,10 @@ project.lock.json
 .DS_Store
 *.pyc
 nupkg/
+*.bak
 
 # Visual Studio Code
-.vscode
+.vscode/
 
 # User-specific files
 *.suo
