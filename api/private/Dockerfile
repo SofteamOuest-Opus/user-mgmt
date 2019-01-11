@@ -7,6 +7,7 @@ RUN dotnet restore
 
 COPY . ./
 RUN dotnet publish -c Release -o out src/PrivateApi/*.csproj
+RUN dotnet test private.sln
 
 # Build runtime image
 FROM microsoft/dotnet:2.2-aspnetcore-runtime

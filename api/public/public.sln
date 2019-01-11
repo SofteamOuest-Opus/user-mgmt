@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "public", "public", "{3AEF44F3-84CC-4F55-9904-8C1FAFCE3189}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0809F7A6-69D1-4185-A298-BA4B1A965BC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublicApi", "public\src\PublicApi\PublicApi.csproj", "{168FEACA-F637-4511-8664-0E86AC1DA4C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PublicApi", "src\PublicApi\PublicApi.csproj", "{168FEACA-F637-4511-8664-0E86AC1DA4C8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BEAC83F2-756A-42E3-89C4-49B3A8935643}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublicApi.SpecFlow", "public\test\PublicApi.Specflow\PublicApi.SpecFlow.csproj", "{C0C1BCE8-B10C-4E0A-A00B-FCA4293CFBDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PublicApi.SpecFlow", "test\PublicApi.Specflow\PublicApi.SpecFlow.csproj", "{C0C1BCE8-B10C-4E0A-A00B-FCA4293CFBDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{168FEACA-F637-4511-8664-0E86AC1DA4C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -51,10 +46,14 @@ Global
 		{C0C1BCE8-B10C-4E0A-A00B-FCA4293CFBDF}.Release|x86.ActiveCfg = Release|Any CPU
 		{C0C1BCE8-B10C-4E0A-A00B-FCA4293CFBDF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{0809F7A6-69D1-4185-A298-BA4B1A965BC5} = {3AEF44F3-84CC-4F55-9904-8C1FAFCE3189}
 		{168FEACA-F637-4511-8664-0E86AC1DA4C8} = {0809F7A6-69D1-4185-A298-BA4B1A965BC5}
-		{BEAC83F2-756A-42E3-89C4-49B3A8935643} = {3AEF44F3-84CC-4F55-9904-8C1FAFCE3189}
 		{C0C1BCE8-B10C-4E0A-A00B-FCA4293CFBDF} = {BEAC83F2-756A-42E3-89C4-49B3A8935643}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A86D9174-8202-49D1-8828-2A0F6FE4E5C7}
 	EndGlobalSection
 EndGlobal

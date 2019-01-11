@@ -3,17 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "private", "private", "{ACB2300D-5DA5-4BA3-81AF-085E5E2C1AE9}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F4007493-CCAF-456E-8D51-102F09183B01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateApi", "private\src\PrivateApi\PrivateApi.csproj", "{166F433B-45B9-43BF-90A1-9EF138098E81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrivateApi", "src\PrivateApi\PrivateApi.csproj", "{166F433B-45B9-43BF-90A1-9EF138098E81}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{04DE4AEF-A052-4C05-9FCD-CFCC20022DF9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateApi.SpecFlow", "private\test\PrivateApi.SpecFlow\PrivateApi.SpecFlow.csproj", "{54E1DA9E-3C20-4FD0-A2B6-D13C23F55C8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrivateApi.SpecFlow", "test\PrivateApi.SpecFlow\PrivateApi.SpecFlow.csproj", "{54E1DA9E-3C20-4FD0-A2B6-D13C23F55C8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrivateApi.Tests", "private\test\PrivateApi.Tests\PrivateApi.Tests.csproj", "{699123FF-0A7E-463A-9057-7C73AB6B9C9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrivateApi.Tests", "test\PrivateApi.Tests\PrivateApi.Tests.csproj", "{699123FF-0A7E-463A-9057-7C73AB6B9C9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,9 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{166F433B-45B9-43BF-90A1-9EF138098E81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -65,11 +60,15 @@ Global
 		{699123FF-0A7E-463A-9057-7C73AB6B9C9B}.Release|x86.ActiveCfg = Release|Any CPU
 		{699123FF-0A7E-463A-9057-7C73AB6B9C9B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{F4007493-CCAF-456E-8D51-102F09183B01} = {ACB2300D-5DA5-4BA3-81AF-085E5E2C1AE9}
 		{166F433B-45B9-43BF-90A1-9EF138098E81} = {F4007493-CCAF-456E-8D51-102F09183B01}
-		{04DE4AEF-A052-4C05-9FCD-CFCC20022DF9} = {ACB2300D-5DA5-4BA3-81AF-085E5E2C1AE9}
 		{54E1DA9E-3C20-4FD0-A2B6-D13C23F55C8A} = {04DE4AEF-A052-4C05-9FCD-CFCC20022DF9}
 		{699123FF-0A7E-463A-9057-7C73AB6B9C9B} = {04DE4AEF-A052-4C05-9FCD-CFCC20022DF9}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F79E507-047E-4F1D-A944-4FD23D268A70}
 	EndGlobalSection
 EndGlobal
