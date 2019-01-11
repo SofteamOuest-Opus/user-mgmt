@@ -23,7 +23,7 @@ namespace PrivateApi.Tests.Controllers
                 var result = ControllerUnderTest.Get();
 
                 // Assert
-                result.Should().HaveCount(2);
+                result.Value.Should().HaveCount(2);
             }
         }
     }
