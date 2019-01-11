@@ -7,7 +7,7 @@ info:
     name: MIT
     url: https://github.com/SofteamOuest-Opus/user-mgmt/blob/master/LICENSE
 servers:
-  - url: http://user-mgmt.k8-dev.wildwidewest.xyz
+  - url: http://user-mgmt.k8-dev.wildwidewest.xyz/api/public
     description: Development server  
 
 paths:
@@ -66,11 +66,6 @@ paths:
 components:
   schemas:
     Employee:
-      required:
-        - id
-        - lastName
-        - firstName
-        - email
       properties:
         id:
           type: string
@@ -103,8 +98,6 @@ components:
         $ref: "#/components/schemas/Employee"
 
     Manager:
-      required:
-        - id
       properties:
         id:
           type: string
@@ -114,8 +107,6 @@ components:
           type: string
 
     Office:
-      required:
-        - id
       properties:
         id:
           type: string
@@ -123,8 +114,6 @@ components:
           type: string
 
     Status:
-      required:
-        - id
       properties:
         id:
           type: string
@@ -132,8 +121,6 @@ components:
           type: string
 
     Function:
-      required:
-        - id
       properties:
         id:
           type: string
