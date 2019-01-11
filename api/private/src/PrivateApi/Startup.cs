@@ -24,6 +24,7 @@ namespace PrivateApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddHealthChecks();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -39,6 +40,7 @@ namespace PrivateApi
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseHealthChecks("/healthz");
         }
     }
 }
