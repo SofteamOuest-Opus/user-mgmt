@@ -8,7 +8,9 @@ info:
     url: https://github.com/SofteamOuest-Opus/user-mgmt/blob/master/LICENSE
 servers:
   - url: http://user-mgmt.k8-dev.wildwidewest.xyz/api/public
-    description: Development server  
+    description: Integration server  
+  - url: https://localhost:44302
+    description: Local server  
 
 paths:
   /employees:
