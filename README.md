@@ -17,6 +17,28 @@ User management application for Softeam Opus, consisting in:
     <dd>Back-end API</dd>
 </dl>
 
-## How-to build
+## How-to run
 
-TODO
+### Back-end APIs
+
+The following commands are given with the private back-end API as an example.
+
+#### Locally
+
+The following will serve the private API at https://localhost:44312
+
+```powershell
+cd api/private
+dotnet run --project src/PrivateApi/PrivateApi.csproj
+```
+
+#### With Docker
+
+The following will serve the private API at http://localhost:8080
+
+```powershell
+cd api/private
+docker build -t opus/user-mgmt/private .
+docker run -d -p 8080:80 --name opus_private opus/user-mgmt/private
+docker inspect --format='{{json .State.Health}}' opus_private
+```
