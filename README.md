@@ -20,6 +20,10 @@ User management application for Softeam Opus, consisting in:
 ## Technology stack
 
 <dl>
+    <dt>Front-end API</dt>
+    <dd>TBD. (probably LitElement with Polymer)</dd>
+</dl>
+<dl>
     <dt>Back-end API</dt>
     <dd>.NET Core, PostgreSQL, Docker</dd>
 </dl>
@@ -38,13 +42,14 @@ cd api/db
 docker build -t opus/user-mgmt/db .
 docker run -d -p 5432:5432 --name postgres_dev -e POSTGRES_PASSWORD=****** opus/user-mgmt/db
 ```
+
 The database will be accessible on port 5432/tcp, user `postgres`.
 
-Database credentials for the apps are setup in `appsettings.json`.
+### Run back-end APIs
 
-### Setup Back-end APIs
+Database credentials for the apps are configured in `appsettings.json`.
 
-The following command examples are given with the private back-end API.
+The following commands are given with the private back-end API as an example.
 
 The same commands apply to public back-end API, with some small adaptations (folders, ports, etc.).
 
@@ -55,6 +60,9 @@ The following will serve the private API at https://localhost:44312
 ```powershell
 cd api/private
 dotnet run --project src/PrivateApi/PrivateApi.csproj
+
+# liveness test (optional)
+curl https://localhost:44312/healthz
 ```
 
 #### With Docker
@@ -65,5 +73,10 @@ The following will serve the private API at http://localhost:8080
 cd api/private
 docker build -t opus/user-mgmt/private .
 docker run -d -p 8080:80 --name user_mgmt_private opus/user-mgmt/private
+
+# liveness test (optional)
 docker inspect --format='{{json .State.Health}}' user_mgmt_private
 ```
+### Run front-end app
+
+TODO

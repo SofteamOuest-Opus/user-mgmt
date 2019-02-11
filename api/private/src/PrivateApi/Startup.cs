@@ -25,7 +25,8 @@ namespace PrivateApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddHealthChecks();
+            services.AddHealthChecks()
+                .AddNpgSql(Configuration.GetConnectionString("UserMgmtDatabase"));
 
             services.AddDbContext<UserMgmtContext.UserMgmtContext>(options => 
                 options.UseNpgsql(Configuration.GetConnectionString("UserMgmtDatabase")));
