@@ -9,7 +9,9 @@ Then I can access the application according to my access rights
 @ignore
 Scenario: S_2
 Given an Employee list
-When I bulk insert this list
+And an Administrator
+When I login as this Administrator
+And I bulk insert this list
 Then all employees are created or updated
 
 @ignore

@@ -102,8 +102,12 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
 testRunner.Given("an Employee list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 12
-testRunner.When("I bulk insert this list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.And("an Administrator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
+testRunner.When("I login as this Administrator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 14
+testRunner.And("I bulk insert this list", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 15
 testRunner.Then("all employees are created or updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -116,16 +120,16 @@ testRunner.Then("all employees are created or updated", ((string)(null)), ((Tech
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("S_3", null, new string[] {
                         "ignore"});
-#line 16
+#line 18
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 17
-testRunner.Given("an Employee", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 18
-testRunner.And("an authenticated external application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 19
-testRunner.When("that external application requests for personal data of this Employee", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("an Employee", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 20
+testRunner.And("an authenticated external application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
+testRunner.When("that external application requests for personal data of this Employee", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 22
 testRunner.Then("it can read personal data of this Employee", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -138,16 +142,16 @@ testRunner.Then("it can read personal data of this Employee", ((string)(null)), 
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("S_4", null, new string[] {
                         "ignore"});
-#line 23
+#line 25
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
-#line 24
-testRunner.Given("an Employee", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 25
-testRunner.And("an authenticated external application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 26
-testRunner.When("this employee is updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("an Employee", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 27
+testRunner.And("an authenticated external application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+testRunner.When("this employee is updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 29
 testRunner.Then("that external application is notified of the update", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
