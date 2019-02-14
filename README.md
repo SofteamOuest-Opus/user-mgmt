@@ -72,11 +72,25 @@ The following will serve the private API at http://localhost:8080
 ```powershell
 cd api/private
 docker build -t opus/user-mgmt/private .
-docker run -d -p 8080:80 --name user_mgmt_private opus/user-mgmt/private
+docker run -d -p 8080:80 --name user_mgmt_private -e "ASPNETCORE_ENVIRONMENT=Staging" opus/user-mgmt/private
+```
 
-# liveness test (optional)
+When running the local database `postgres_dev` as a docker container, a docker network is required to allow connection between containers.
+
+```powershell
+docker network create my-net
+docker network connect my-net postgres_dev
+docker network connect my-net user_mgmt_private
+```
+
+Liveness test (optional)
+
+```
 docker inspect --format='{{json .State.Health}}' user_mgmt_private
 ```
+
+Or browse http://localhost:8080/healthz
+
 ### Run front-end app
 
 TODO
