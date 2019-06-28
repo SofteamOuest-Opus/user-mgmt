@@ -23,7 +23,13 @@ namespace PublicApi.SpecFlow.StepDefinitions
         {
             ScenarioContext.Current.Pending();
         }
-        
+
+        [Given(@"an Administrator")]
+        public void GivenAnAdministrator()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
         [Given(@"an authenticated external application")]
         public void GivenAnAuthenticatedExternalApplication()
         {
@@ -35,7 +41,13 @@ namespace PublicApi.SpecFlow.StepDefinitions
         {
             ScenarioContext.Current.Pending();
         }
-        
+
+        [When(@"I login as this Administrator")]
+        public void WhenILoginAsThisAdministrator()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
         [When(@"I bulk insert this list")]
         public void WhenIBulkInsertThisList()
         {

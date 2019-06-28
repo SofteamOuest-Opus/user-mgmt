@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
 
@@ -11,7 +13,10 @@ namespace PrivateApi
         {
             try
             {
-                CreateWebHostBuilder(args).Build().Run();
+                CreateWebHostBuilder(args)
+                    .Build()
+                    .MigrateDatabase()
+                    .Run();
             }
             finally
             {
@@ -28,5 +33,19 @@ namespace PrivateApi
                     logging.SetMinimumLevel(LogLevel.Trace);
                 })
                 .UseNLog();
+    }
+
+    internal static class Extensions
+    {
+        internal static IWebHost MigrateDatabase(this IWebHost host)
+        {
+            using (var serviceScope = host.Services.CreateScope())
+            using (var context = serviceScope.ServiceProvider.GetService<UserMgmtContext.UserMgmtContext>())
+            {
+                context.Database.Migrate();
+            }
+            return host;
+        }
+
     }
 }
