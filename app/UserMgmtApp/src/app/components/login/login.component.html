@@ -1,6 +1,13 @@
-<div>
-    <h3>Login form</h3>
-    <br><br>
-    <a [routerLink]="'/employee'">Sign In</a>
-    <br><br>
+<div class="rounded shadow shadow-sm login-form">
+    <div class="form-group mt-4">
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" placeholder="Enter email" id="email">
+    </div>
+    <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+    </div>
+    <div class="text-center mt-4">
+        <button [routerLink]="'/employee'" type="submit" class="btn btn-primary btn-block">Sign In</button>
+    </div>
 </div>
