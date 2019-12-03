@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+
+  html {
+    height: 100%;
+  }
+
+  body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+     height: 60px;
+     background-color: #cccccc;
+     color: white;
+     text-align: center;
+     padding: 10px;
+  }
+
+  .content {
+    padding: 0 16px;
+  }
+
+  footer {
+    height: 40px;
+    background-color: #eeeeee;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
