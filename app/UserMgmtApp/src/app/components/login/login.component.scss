@@ -1,26 +1,7 @@
 $color-text: #403866;
 $color-input: #e6e6e6;
 
-  
-  
-  .container-login100 {
-    position: relative;
-    width: 100%;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.login100-form {
+  .login100-form {
     width: 100%;
 }
 
@@ -46,7 +27,7 @@ $color-input: #e6e6e6;
 
   .wrap-input100 {
     width: 100%;
-    position: relative;
+   // position: relative;
     background-color: $color-input;
     border: 1px solid transparent;
     border-radius: 3px;
