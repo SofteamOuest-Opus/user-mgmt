@@ -2,6 +2,7 @@
 
 @import "~bootstrap/dist/css/bootstrap.css";
 
+$color-purple: #817FFE;
 
 html, body {
     margin: 0;
@@ -19,21 +20,9 @@ html, body {
   }
 
   .content {
-    background-color: #eeeeee;
-    padding: 20px;
     position: relative;
   }
 
-  .login-form {
-    background-color: white;
-    width: 300px;
-    height: 300px;
-    padding: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -150px 0 0 -150px;
-  }
 
   footer {
     position: absolute;
@@ -47,6 +36,6 @@ html, body {
   }
 
   .btn-primary { 
-      background-color: #817FFE !important; 
-      border-color: #817FFE  !important; 
+      background-color: $color-purple !important; 
+      border-color: $color-purple  !important;
     }

@@ -1,13 +1,19 @@
-<div class="rounded shadow shadow-sm login-form">
-    <div class="form-group mt-4">
-        <label for="email">Email address:</label>
-        <input type="email" class="form-control" placeholder="Enter email" id="email">
-    </div>
-    <div class="form-group">
-        <label for="pwd">Password:</label>
-        <input type="password" class="form-control" placeholder="Enter password" id="pwd">
-    </div>
-    <div class="text-center mt-4">
-        <button [routerLink]="'/employee'" type="submit" class="btn btn-primary btn-block">Sign In</button>
+<div class="container-login100" id="container-login">
+    <div class="wrap-login">
+        <form class="login100-form validate-form flex-sb flex-w" [formGroup]="loginForm" (ngSubmit)="onSubmit()"
+            novalidate>
+            <span class="login100-form-title pb-5">
+                User Management
+            </span>
+            <div class="form-group wrap-input100 mb-4">
+                <input type="text" class="input100" formControlName="userName" placeholder="Username">
+            </div>
+            <div class="form-group wrap-input100 mb-4">
+                <input type="password" class="input100" formControlName="password" placeholder="Password">
+            </div>
+            <div class="text-center mt-4">
+                <button [routerLink]="'/employee'" type="submit" class="btn btn-primary btn-block">Login</button>
+            </div>
+        </form>
     </div>
 </div>

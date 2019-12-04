@@ -6,6 +6,6 @@ $(document).ready(function () {
     var clientHeight = document.body.clientHeight;
     // Client height - (header + footer height)
     $('#sd-content').css('min-height', (clientHeight - 100));
-
+    $('#container-login').css('min-height', (clientHeight - 100));
 });
 
