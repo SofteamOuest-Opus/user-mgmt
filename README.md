@@ -6,6 +6,11 @@ User management application for Softeam Opus, consisting in:
     * a private, secure API for the front-end
     * a public API for external applications 
 
+## Documentation
+
+Comprehensive specifications can be found in [this Github repo](https://github.com/SofteamOuest-Opus/specs/tree/master/user-mgmt)
+along with description of general application architecture and interface mockups. 
+
 ## Directory structure
 
 <dl>
@@ -13,47 +18,69 @@ User management application for Softeam Opus, consisting in:
     <dd>Front-end application</dd>
 </dl>
 <dl>
-    <dt>`api/`<dt>
-    <dd>Back-end API</dd>
+    <dt>`api/private/`<dt>
+    <dd>Back-end private API</dd>
+</dl>
+<dl>
+    <dt>`api/public/`<dt>
+    <dd>Back-end public API</dd>
+</dl>
+<dl>
+    <dt>`infrastructure/`<dt>
+    <dd>Local scripts for setting up back-end infrastructure</dd>
 </dl>
 
 ## Technology stack
 
 <dl>
     <dt>Front-end API</dt>
-    <dd>TBD. (probably LitElement with Polymer)</dd>
+    <dd>TODO</dd>
 </dl>
 <dl>
     <dt>Back-end API</dt>
-    <dd>.NET Core, PostgreSQL, Docker</dd>
+    <dd>.NET Core, PostgreSQL</dd>
 </dl>
 
 
 ## How-to run
 
-### Setup the database
+### Infrastructure
 
-The applications requires a PostgreSQL database to run.
+To run, the applications require:
+- a PostgreSQL database for storage
+- a Keycloak instance for authentication (TODO)
+- a Apache Kafka instance for messaging (TODO)
 
-A local database named `user_mgmt_db` can be spun up quickly with Docker:
+A local development infrastructure, with a default setup, can be spun up quickly with Docker. Just replace ****** the passwords of your choice in `infrastructure/docker-compose.yaml`,
 
+And then:
 ```powershell
-cd api/db
-docker build -t opus/user-mgmt/db .
-docker run -d -p 5432:5432 --name postgres_dev -e POSTGRES_PASSWORD=****** opus/user-mgmt/db
+docker-compose --file infrastructure/docker-compose.yaml --project-name user_mgmt_infra up --build --detach
 ```
 
-The database will be accessible on port 5432/tcp, user `postgres`.
+#### Local database
 
-### Run back-end APIs
+The database will be accessible on port 5432/tcp, user `postgres` and password of your choice.
 
-Database credentials for the apps are configured in `appsettings.json`.
+#### Keycloak
 
-The following commands are given with the private back-end API as an example.
+TODO
 
-The same commands apply to public back-end API, with some small adaptations (folders, ports, etc.).
+#### Kafka
 
-#### Locally
+TODO
+
+#### Stopping the infrastructure
+
+```powershell
+docker-compose --file infrastructure/docker-compose.yaml --project-name user_mgmt_infra down
+```
+
+### Run the private back-end API
+
+Database credentials for the apps are configured in `appsettings.json` (remember to replace the ****** with the previously chosen password)
+
+#### Run locally
 
 The following will serve the private API at https://localhost:44312
 
@@ -65,32 +92,26 @@ dotnet run --project src/PrivateApi/PrivateApi.csproj
 curl https://localhost:44312/healthz
 ```
 
-#### With Docker
+#### Test interface (Swagger UI)
 
-The following will serve the private API at http://localhost:8080
+Documentation on methods/arguments of this API is available in OpenAPI format.
 
-```powershell
-cd api/private
-docker build -t opus/user-mgmt/private .
-docker run -d -p 8080:80 --name user_mgmt_private -e "ASPNETCORE_ENVIRONMENT=Staging" opus/user-mgmt/private
-```
-
-When running the local database `postgres_dev` as a docker container, a docker network is required to allow connection between containers.
+A test interface is available via Docker. 
+The following will serve the interface at http://localhost:42081
 
 ```powershell
-docker network create my-net
-docker network connect my-net postgres_dev
-docker network connect my-net user_mgmt_private
+docker build -t user-mgmt/private/doc api/private/doc
+docker run -d -p 42081:8080 --name user_mgmt_swagger_private user-mgmt/private/doc
 ```
 
-Liveness test (optional)
+### Run the public back-end API
 
-```
-docker inspect --format='{{json .State.Health}}' user_mgmt_private
-```
+TODO
 
-Or browse http://localhost:8080/healthz
+### Run the front-end app
 
-### Run front-end app
+TODO
+
+## How to Docker
 
 TODO
