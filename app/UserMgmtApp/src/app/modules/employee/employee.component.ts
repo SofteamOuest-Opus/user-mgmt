@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from 'src/app/services/authentication.service';
-import { Router } from '@angular/router';
+import { UserContextService } from 'src/app/services/user-context.service';
+import { Employee } from 'src/app/models/employee.model';
+
+
 
 @Component({
   selector: 'app-employee',
@@ -9,18 +11,14 @@ import { Router } from '@angular/router';
 })
 export class EmployeeComponent implements OnInit {
 
+  public employeeDisplay: Employee;
+
   constructor(
-    private authenticationService: AuthenticationService,
-    private router: Router,
+    private userContextService: UserContextService,
 
   ) { }
 
-  ngOnInit() {
+  public ngOnInit(): void {
+    this.employeeDisplay = this.userContextService.getCurrentUserInfos();
   }
-
-  public logout(): void {
-    this.authenticationService.setIsConnected(false);
-    this.router.navigate(['/']);
-  }
-
 }

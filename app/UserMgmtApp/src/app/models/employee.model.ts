@@ -9,6 +9,7 @@ export class Employee {
     public firstName: string;
     public lastName: string;
     public email: string;
+    public hiringDate: Date
 
     public id?: string;
     public photoUri?: string;
@@ -18,14 +19,16 @@ export class Employee {
     public status?: Status;
     public occupation?: Occupation;
     public accessRights?: string[];
+    public leavingDate?: Date;
+    public leavingCause?: string;
 
-
-    constructor(fName: string, lName: string, email: string, id?: string, photoUri?: string, office?: Office, manager?: Manager, humanResourceManager?: Manager,
-         status?: Status, occupation?: Occupation,  accessRights?: string[]) {
+    constructor(fName: string, lName: string, email: string, hiringDate: Date, id?: string, photoUri?: string, office?: Office, manager?: Manager, humanResourceManager?: Manager,
+        status?: Status, occupation?: Occupation, accessRights?: string[], leavingDate?: Date, leavingCause?: string) {
 
         this.firstName = fName;
         this.lastName = lName;
         this.email = email;
+        this.hiringDate = hiringDate;
 
         this.id = id;
         this.photoUri = photoUri;
@@ -35,5 +38,7 @@ export class Employee {
         this.status = status;
         this.occupation = occupation;
         this.accessRights = accessRights;
+        this.leavingDate = leavingDate;
+        this.leavingCause = leavingCause;
     }
 }
