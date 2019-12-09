@@ -6,8 +6,11 @@ import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 
 
 const routes: Routes = [
-  { path: '', component: EmployeeComponent, pathMatch: 'full' },
-  { path: '**', component: EmployeeComponent } // TODO NotFoundComponent
+  { path: '', component: EmployeeComponent },
+  { path: 'edit', component: EmployeeEditComponent },
+  // { path: '**', component: EmployeeComponent } // TODO NotFoundComponent
+
+
 ];
 
 @NgModule({
@@ -15,7 +18,6 @@ const routes: Routes = [
     EmployeeComponent,
     EmployeeEditComponent,
 
-    
   ],
   imports: [
     RouterModule.forChild(routes),

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Employee } from '@models/employee.model';
 
 @Component({
   selector: 'app-employee-edit',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeEditComponent implements OnInit {
 
-  constructor() { }
+  public infosMessage: string = 'Pour mettre à jour votre profil, veuillez contacter votre HR Manager.';
 
-  ngOnInit() {
+  constructor(
+    private router: Router,
+
+  ) { }
+
+  public ngOnInit(): void {
+
   }
 
+  public save(emp: Employee): void {
+    // TODO traitements
+    // console.log('click save !!!');
+
+    // Redirection
+    this.router.navigate[('/employee')];
+  }
 }

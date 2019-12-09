@@ -1,1 +1,43 @@
-<p>employee-edit works!</p>
+<div *ngIf="true">
+    <!-- row -->
+    <div class="row pt-3  mb-4">
+        <div class="col-3 text-center">
+            <img src="assets/img/LogoUser.png">
+        </div>
+        <div class="col-6">
+
+        </div>
+    </div>
+    <!-- row - First Name -->
+    <div class="row mb-4">
+        <div class="col-sm-12 text-center">
+            First Name
+        </div>
+    </div>
+    <!-- row - Last Name -->
+    <div class="row mb-4">
+        <div class="col-sm-12 text-center">
+            Last Name
+        </div>
+    </div>
+    <!-- row - E-mail -->
+    <div class="row mb-4">
+        <div class="col-sm-12 text-center">
+            E-mail
+        </div>
+    </div>
+    <!-- row - infos message -->
+    <div class="row mb-4">
+        <div class="col-sm-12 text-center">
+            <i>{{infosMessage}}</i>
+        </div>
+    </div>
+    <!-- row - Button Edit -->
+    <div class="text-center">
+        <div class="col-sm-12 text-center">
+            <a [routerLink]="'/employee'" class="btn btn-primary mr-3 button-width">Cancel</a>
+            <button (click)="save()" class="btn btn-primary button-width">Save</button>
+        </div>
+    </div>
+
+</div>
