@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmployeeComponent } from './employee.component';
 import { Routes, RouterModule } from '@angular/router';
+import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 
 
 const routes: Routes = [
@@ -10,10 +11,16 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [EmployeeComponent],
+  declarations: [
+    EmployeeComponent,
+    EmployeeEditComponent,
+
+    
+  ],
   imports: [
     RouterModule.forChild(routes),
-    CommonModule
+    CommonModule,
+
   ]
 })
 

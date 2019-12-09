@@ -12,12 +12,15 @@ import { FooterComponent } from './components/footer/footer.component';
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+
     
   ],
   providers: [],
