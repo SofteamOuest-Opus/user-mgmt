@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserContextService } from 'src/app/services/user-context.service';
-import { Employee } from 'src/app/models/employee.model';
+import { Employee } from '@models/index.ts';
 
 
 

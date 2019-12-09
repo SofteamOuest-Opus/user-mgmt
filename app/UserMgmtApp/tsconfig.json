@@ -5,7 +5,8 @@
     "paths": {
       "@services/*": ["src/app/services/*"],
       "@components/*": ["src/app/components/*"],
-      "@models/*": ["src/app/models/*"]
+      "@models/*": ["src/app/models/*"],
+      "@employee/*": ["src/app/modules/employee/*"]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
