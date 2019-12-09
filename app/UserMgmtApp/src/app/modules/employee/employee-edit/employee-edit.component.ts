@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Employee } from '@models/employee.model';
+import * as data from '@assets/json/data.json';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserContextService } from '@services/user-context.service';
+import { EmployeeShort } from '@models/employee-short.model';
 
 @Component({
   selector: 'app-employee-edit',
@@ -9,22 +12,39 @@ import { Employee } from '@models/employee.model';
 })
 export class EmployeeEditComponent implements OnInit {
 
-  public infosMessage: string = 'Pour mettre à jour votre profil, veuillez contacter votre HR Manager.';
+  public infosMessage: string = (data as any).employee_edit_infos;
+  public employeeEditForm: FormGroup;
+  private employeeEdit: EmployeeShort;
 
   constructor(
     private router: Router,
-
+    private userContextService: UserContextService,
   ) { }
 
   public ngOnInit(): void {
-
+    this.employeeEditForm = this.createFormGroup();
+    this.employeeEdit = this.userContextService.getCurrentUserShortInfos();
+    this.initialyzeFormGroup();
   }
 
-  public save(emp: Employee): void {
+  public onSubmit(event: Event): void {
     // TODO traitements
-    // console.log('click save !!!');
+    console.log(this.employeeEditForm.value);
 
     // Redirection
     this.router.navigate[('/employee')];
   }
+
+  private createFormGroup(): FormGroup {
+    return new FormGroup({
+      firstName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
+      lastName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
+      email: new FormControl('', [Validators.required])
+    });
+  }
+
+  private initialyzeFormGroup(): void {
+    this.employeeEditForm.setValue(this.employeeEdit);
+  }
+
 }

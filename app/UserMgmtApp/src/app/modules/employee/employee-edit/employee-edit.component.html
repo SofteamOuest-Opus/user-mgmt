@@ -1,43 +1,44 @@
 <div *ngIf="true">
-    <!-- row -->
-    <div class="row pt-3  mb-4">
-        <div class="col-3 text-center">
-            <img src="assets/img/LogoUser.png">
-        </div>
-        <div class="col-6">
+    <form [formGroup]="employeeEditForm" (ngSubmit)="onSubmit($event)" novalidate>
+        <!-- row image -->
+        <div class="row pt-3  mb-5">
+            <div class="col-3 text-center">
+                <img src="assets/img/LogoUser.png">
+            </div>
+            <div class="col-6">
 
+            </div>
         </div>
-    </div>
-    <!-- row - First Name -->
-    <div class="row mb-4">
-        <div class="col-sm-12 text-center">
-            First Name
+        <!-- row - First Name -->
+        <div class="row">
+            <div class="form-group col-12">
+                <input type="text" class="form-control" formControlName="firstName" placeholder="First Name" />
+            </div>
         </div>
-    </div>
-    <!-- row - Last Name -->
-    <div class="row mb-4">
-        <div class="col-sm-12 text-center">
-            Last Name
+        <!-- row - Last Name -->
+        <div class="row">
+            <div class="form-group col-12">
+                <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name" />
+            </div>
         </div>
-    </div>
-    <!-- row - E-mail -->
-    <div class="row mb-4">
-        <div class="col-sm-12 text-center">
-            E-mail
+        <!-- row - E-mail -->
+        <div class="row">
+            <div class="form-group col-12">
+                <input type="email" class="form-control" formControlName="email" placeholder="E-mail" />
+            </div>
         </div>
-    </div>
-    <!-- row - infos message -->
-    <div class="row mb-4">
-        <div class="col-sm-12 text-center">
-            <i>{{infosMessage}}</i>
+        <!-- row - infos message -->
+        <div class="row mt-4 mb-5">
+            <div class="col-sm-12 text-center">
+                <i>{{infosMessage}}</i>
+            </div>
         </div>
-    </div>
-    <!-- row - Button Edit -->
-    <div class="text-center">
-        <div class="col-sm-12 text-center">
-            <a [routerLink]="'/employee'" class="btn btn-primary mr-3 button-width">Cancel</a>
-            <button (click)="save()" class="btn btn-primary button-width">Save</button>
+        <!-- row - Button Edit -->
+        <div class="text-center">
+            <div class="col-sm-12 text-center">
+                <a [routerLink]="'/employee'" class="btn btn-primary mr-3 button-width">Cancel</a>
+                <button type="submit" class="btn btn-primary button-width">Save</button>
+            </div>
         </div>
-    </div>
-
+    </form>
 </div>

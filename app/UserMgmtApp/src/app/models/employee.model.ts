@@ -9,8 +9,8 @@ export class Employee {
     public firstName: string;
     public lastName: string;
     public email: string;
-    public hiringDate: Date
 
+    public hiringDate?: Date
     public id?: string;
     public photoUri?: string;
     public office?: Office;
@@ -28,8 +28,8 @@ export class Employee {
         this.firstName = fName;
         this.lastName = lName;
         this.email = email;
-        this.hiringDate = hiringDate;
 
+        this.hiringDate = hiringDate;
         this.id = id;
         this.photoUri = photoUri;
         this.office = office;
