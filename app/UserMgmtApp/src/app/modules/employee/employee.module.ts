@@ -4,6 +4,7 @@ import { EmployeeComponent } from './employee.component';
 import { Routes, RouterModule } from '@angular/router';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { SharedModule } from '@shared/shared.module';
 
 
 
@@ -25,7 +26,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule 
 
   ]
 })

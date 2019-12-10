@@ -5,6 +5,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserContextService } from '@services/user-context.service';
 import { EmployeeShort } from '@models/employee-short.model';
 
+
 @Component({
   selector: 'app-employee-edit',
   templateUrl: './employee-edit.component.html',
@@ -14,11 +15,14 @@ export class EmployeeEditComponent implements OnInit {
 
   public infosMessage: string = (data as any).employee_edit_infos;
   public employeeEditForm: FormGroup;
+  public showImgEditForm: boolean = false;
+
   private employeeEdit: EmployeeShort;
 
   constructor(
     private router: Router,
     private userContextService: UserContextService,
+
   ) { }
 
   public ngOnInit(): void {
@@ -35,16 +39,20 @@ export class EmployeeEditComponent implements OnInit {
     this.router.navigate[('/employee')];
   }
 
+  public editPhoto(): void {
+    this.showImgEditForm = true;
+
+  }
+
   private createFormGroup(): FormGroup {
     return new FormGroup({
       firstName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
       lastName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
-      email: new FormControl('', [Validators.required])
+      email: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]))
     });
   }
 
   private initialyzeFormGroup(): void {
     this.employeeEditForm.setValue(this.employeeEdit);
   }
-
 }

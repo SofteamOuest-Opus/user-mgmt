@@ -7,7 +7,9 @@
       "@components/*": ["src/app/components/*"],
       "@models/*": ["src/app/models/*"],
       "@employee/*": ["src/app/modules/employee/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "@shared/*": ["src/app/modules/shared/*"],
+      
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
