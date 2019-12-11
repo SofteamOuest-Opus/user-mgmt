@@ -20,5 +20,6 @@ export class EmployeeComponent implements OnInit {
 
   public ngOnInit(): void {
     this.employeeDisplay = this.userContextService.getCurrentUserInfos();
+    console.log('employeeDisplay', this.employeeDisplay);
   }
 }

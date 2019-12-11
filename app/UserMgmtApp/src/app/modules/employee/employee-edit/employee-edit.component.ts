@@ -16,8 +16,10 @@ export class EmployeeEditComponent implements OnInit {
   public infosMessage: string = (data as any).employee_edit_infos;
   public employeeEditForm: FormGroup;
   public showImgEditForm: boolean = false;
+  public employeeEdit: EmployeeShort;
 
-  private employeeEdit: EmployeeShort;
+  public photoName: string = `profile1.jpg`;
+  public photoUrl: string = `assets/img/${this.photoName}`;
 
   constructor(
     private router: Router,
@@ -32,7 +34,7 @@ export class EmployeeEditComponent implements OnInit {
   }
 
   public onSubmit(event: Event): void {
-    // TODO traitements
+    // TODO traitements => API
     console.log(this.employeeEditForm.value);
 
     // Redirection
@@ -45,14 +47,17 @@ export class EmployeeEditComponent implements OnInit {
   }
 
   private createFormGroup(): FormGroup {
+    let regExpMailValidator = new RegExp('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$');
+    
     return new FormGroup({
       firstName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
       lastName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
-      email: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]))
+      email: new FormControl('', Validators.compose([Validators.required, Validators.pattern(regExpMailValidator)]))
     });
   }
 
   private initialyzeFormGroup(): void {
+    console.log('employeeEdit : ', this.employeeEdit);
     this.employeeEditForm.setValue(this.employeeEdit);
   }
 }

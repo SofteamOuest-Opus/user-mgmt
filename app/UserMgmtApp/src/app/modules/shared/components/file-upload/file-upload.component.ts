@@ -13,7 +13,6 @@ export class FileUploadComponent implements OnInit {
   public fileUploadProgress: string = null;
   public uploadedFilePath: string = null;
 
-
   constructor(
     private httpClient: HttpClient,
 
@@ -23,7 +22,7 @@ export class FileUploadComponent implements OnInit {
 
   }
 
-  fileProgress(fileInput: any) {
+  public fileProgress(fileInput: any): void {
     this.fileData = <File>fileInput.target.files[0];
     this.preview();
   }
@@ -56,6 +55,8 @@ export class FileUploadComponent implements OnInit {
     //     this.uploadedFilePath = res.data.filePath;
     //     alert('SUCCESS !!');
     //   })
+
+    // Close form
 
   }
 
