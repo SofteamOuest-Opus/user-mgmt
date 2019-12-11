@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import * as data from '@assets/json/data.json';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserContextService } from '@services/user-context.service';
-import { EmployeeShort } from '@models/employee-short.model';
+import { EmployeeShort } from '@models/index.ts';
 
 
 @Component({
@@ -46,18 +46,20 @@ export class EmployeeEditComponent implements OnInit {
 
   }
 
+  public setUpFormVisibility(visibility: boolean): void {
+    this.showImgEditForm = visibility;
+  }
+
   private createFormGroup(): FormGroup {
-    let regExpMailValidator = new RegExp('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$');
-    
+    let regExMailValidator = new RegExp('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$');
     return new FormGroup({
       firstName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
       lastName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
-      email: new FormControl('', Validators.compose([Validators.required, Validators.pattern(regExpMailValidator)]))
+      email: new FormControl('', Validators.compose([Validators.required, Validators.pattern(regExMailValidator)]))
     });
   }
 
   private initialyzeFormGroup(): void {
-    console.log('employeeEdit : ', this.employeeEdit);
     this.employeeEditForm.setValue(this.employeeEdit);
   }
 }

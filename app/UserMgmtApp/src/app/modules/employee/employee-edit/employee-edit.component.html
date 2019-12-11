@@ -7,16 +7,16 @@
                 <img class="profile" src="{{photoUrl}}">
             </div>
             <div class="col-1" style="position: relative;">
-                <div style="position: absolute; bottom: 0px;">
+                <div style="position: absolute; bottom: 0;">
                     <a (click)="editPhoto()"><i class="fas fa-user-edit edit-button"></i></a>
                 </div>
             </div>
         </div>
 
-       <!-- row - File Upload -->
+        <!-- row - File Upload -->
         <div class="row" *ngIf="showImgEditForm">
-            <div class="col-12">
-                <app-file-upload></app-file-upload>
+            <div class="col-12 text-center">
+                <app-file-upload (closeComponentEmitter)="setUpFormVisibility($event)"></app-file-upload>
             </div>
         </div>
 

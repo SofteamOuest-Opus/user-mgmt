@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./file-upload.component.scss']
 })
 export class FileUploadComponent implements OnInit {
+
+  @Output() closeComponentEmitter = new EventEmitter<boolean>();
 
   public fileData: File = null;
   public previewUrl: any = null;
@@ -41,7 +43,11 @@ export class FileUploadComponent implements OnInit {
     }
   }
 
-  onLoadFile() {
+  public cancel(): void {
+    this.closeForm();
+  }
+
+  public onLoadFile(): void {
 
     const formData = new FormData();
     formData.append('file', this.fileData);
@@ -57,7 +63,10 @@ export class FileUploadComponent implements OnInit {
     //   })
 
     // Close form
-
+    this.closeForm();
   }
 
+  private closeForm(): void {
+    this.closeComponentEmitter.emit(false);
+  }
 }
