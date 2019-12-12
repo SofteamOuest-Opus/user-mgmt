@@ -5,12 +5,19 @@ import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent, pathMatch: 'full' },
+  {
+    path: '',
+    component: LoginComponent,
+    pathMatch: 'full'
+  },
   {
     path: 'employee',
     loadChildren: () => import('./modules/employee/employee.module').then(m => m.EmployeeModule)
   },
-  { path: '**', component: LoginComponent } // TODO NotFoundComponent
+  {
+    path: '**',
+    component: LoginComponent // TODO NotFoundComponent
+  }
 ];
 
 @NgModule({

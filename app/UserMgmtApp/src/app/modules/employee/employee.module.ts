@@ -11,7 +11,7 @@ import { SharedModule } from '@shared/shared.module';
 const routes: Routes = [
   { path: '', component: EmployeeComponent },
   { path: 'edit', component: EmployeeEditComponent },
-  // { path: '**', component: EmployeeComponent } // TODO NotFoundComponent
+  { path: '**', component: EmployeeComponent } // TODO NotFoundComponent
 
 
 ];

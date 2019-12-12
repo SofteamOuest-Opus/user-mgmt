@@ -31,14 +31,16 @@ export class EmployeeEditComponent implements OnInit {
     this.employeeEditForm = this.createFormGroup();
     this.employeeEdit = this.userContextService.getCurrentUserShortInfos();
     this.initialyzeFormGroup();
+
+    
   }
 
   public onSubmit(event: Event): void {
     // TODO traitements => API
-    console.log(this.employeeEditForm.value);
+    console.log('form values : ', this.employeeEditForm.value);
 
     // Redirection
-    this.router.navigate[('/employee')];
+    this.redirectToEmployee();
   }
 
   public editPhoto(): void {
@@ -51,7 +53,9 @@ export class EmployeeEditComponent implements OnInit {
   }
 
   private createFormGroup(): FormGroup {
+
     let regExMailValidator = new RegExp('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$');
+
     return new FormGroup({
       firstName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
       lastName: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
@@ -61,5 +65,9 @@ export class EmployeeEditComponent implements OnInit {
 
   private initialyzeFormGroup(): void {
     this.employeeEditForm.setValue(this.employeeEdit);
+  }
+
+  private redirectToEmployee(): void {
+    this.router.navigate(['/employee']);
   }
 }
