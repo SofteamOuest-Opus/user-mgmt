@@ -41,14 +41,8 @@ header {
   padding: 13px 16px;
 }
 
-.container {
-  position: relative;
-}
-
 footer {
-  position: absolute;
   height: 44px;
-  bottom: 0;
   width: 100%;
   background-color: $color-background-footer;
   color: white;
@@ -71,7 +65,8 @@ footer {
   border-radius: 10px;
 }
 
-.active {
-  // background:#4FA9DC;
-  color: red;
+.profile-list {
+  width: 100px;
+  border: 1px solid $color-gris1;
+  border-radius: 10px;
 }

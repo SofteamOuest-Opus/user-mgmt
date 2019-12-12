@@ -1,12 +1,5 @@
 <!-- Header -->
-<div *ngIf="!this.authenticationService.isConnected();else navbar">
-    <header>
-        <div class="container header-title">
-            <span><b>{{headerTitlePart1}}</b> {{headerTitlePart2}}</span>
-        </div>
-    </header>
-</div>
-<ng-template #navbar>
+<div *ngIf="authenticationService.getConnected();else nonavbar">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbar-custom">
         <div class="container">
             <a class="navbar-brand" [routerLink]="['/employee']">
@@ -34,4 +27,11 @@
             </div>
         </div>
     </nav>
+</div>
+<ng-template #nonavbar>
+    <header>
+        <div class="container header-title">
+            <span><b>{{headerTitlePart1}}</b> {{headerTitlePart2}}</span>
+        </div>
+    </header>
 </ng-template>

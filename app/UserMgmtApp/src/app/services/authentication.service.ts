@@ -16,12 +16,11 @@ export class AuthenticationService {
       this._isConnected = true;
   }
 
-  public isConnected(): boolean {
-
+  public getConnected(): boolean {
     return this._isConnected;
   }
 
-  public setIsConnected() {
+  public setConnected() {
     this._isConnected = true;
     this.setSessionStorageKey();
   }

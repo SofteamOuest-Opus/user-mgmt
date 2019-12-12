@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    let isLogin: boolean = this.authenticationService.isConnected();
+    let isLogin: boolean = this.authenticationService.getConnected();
     this.redirectLogin(isLogin);
   }
 

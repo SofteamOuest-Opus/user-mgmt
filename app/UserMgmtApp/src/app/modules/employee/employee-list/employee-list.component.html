@@ -1,1 +1,13 @@
-<p>employee-list works!</p>
+<div class="mt-3" *ngIf="employeeDisplayList">
+    <div class="row mb-3" *ngFor="let employee of employeeDisplayList">
+        <div class="col-4 text-center">
+            <img class="profile-list" src={{baseUrl}}{{employee.photoUri}}>
+        </div>
+        <div class="col-8">
+            <div class="row mt-4">
+                <div class="col-12 mb-2 name"> {{employee.firstName}} {{employee.lastName}}</div>
+                <div class="col-12"> {{employee.office.name}}</div>
+            </div>
+        </div>
+    </div>
+</div>

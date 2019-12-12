@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms'
-import { AuthenticationService } from 'src/app/services/authentication.service';
+import { AuthenticationService } from '@services/authentication.service';
 import { Router } from '@angular/router';
 
 
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   public onSubmit(event: Event): void {
-    this.authenticationService.setIsConnected();
+    this.authenticationService.setConnected();
     this.router.navigate(['/employee']);
   }
 
