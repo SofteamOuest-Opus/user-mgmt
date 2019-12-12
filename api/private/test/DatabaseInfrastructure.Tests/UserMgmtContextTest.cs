@@ -1,4 +1,4 @@
-using Domain.Model;
+using DatabaseInfrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 using System.Linq;
@@ -21,7 +21,7 @@ namespace DatabaseInfrastructure.Tests
                 // Act
                 using (var context = new UserMgmtContext(options))
                 {
-                    context.Add(new Employee
+                    context.Add(new EmployeeEntity
                     {
                         FirstName = "Stephen",
                         LastName = "Hawking",

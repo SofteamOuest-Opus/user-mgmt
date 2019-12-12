@@ -16,16 +16,10 @@ along with description of general application architecture and interface mockups
 <dl>
     <dt>`app/`<dt>
     <dd>Front-end application</dd>
-</dl>
-<dl>
     <dt>`api/private/`<dt>
     <dd>Back-end private API</dd>
-</dl>
-<dl>
     <dt>`api/public/`<dt>
     <dd>Back-end public API</dd>
-</dl>
-<dl>
     <dt>`infrastructure/`<dt>
     <dd>Local scripts for setting up back-end infrastructure</dd>
 </dl>
@@ -35,8 +29,6 @@ along with description of general application architecture and interface mockups
 <dl>
     <dt>Front-end API</dt>
     <dd>TODO</dd>
-</dl>
-<dl>
     <dt>Back-end API</dt>
     <dd>.NET Core, PostgreSQL</dd>
 </dl>
@@ -77,6 +69,9 @@ docker-compose --file infrastructure/docker-compose.yaml --project-name user_mgm
 ```
 
 ### Run the private back-end API
+
+More comprehensive instructions for running and building the private API can be found 
+in the [`api/private/` directory](./api/private/README.md).
 
 Database credentials for the apps are configured in `appsettings.json` (remember to replace the ****** with the previously chosen password)
 
