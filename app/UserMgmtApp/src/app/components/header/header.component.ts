@@ -18,11 +18,11 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+
   }
 
   public logout(): void {
-    this.authenticationService.setIsConnected(false);
+    this.authenticationService.logOut();
     this.router.navigate(['/']);
   }
 }

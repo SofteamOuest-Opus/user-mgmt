@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 
+
+const loginKey: string = 'UserMgmtLogin';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -7,16 +10,37 @@ export class AuthenticationService {
 
   private _isConnected: boolean = false;
 
-  isConnected() {
+
+  constructor() {
+    if (this.getSessionStorageItem())
+      this._isConnected = true;
+  }
+
+  public isConnected(): boolean {
+
     return this._isConnected;
   }
 
-  setIsConnected(val: boolean) {
-    this._isConnected = val;
-    // console.log('_isConnected : ', this._isConnected);
+  public setIsConnected() {
+    this._isConnected = true;
+    this.setSessionStorageKey();
   }
 
-  constructor() { }
+  public logOut(): void {
+    this._isConnected = false;
+    this.removeSessionStorageKey();
+  }
 
+  private setSessionStorageKey(): void {
+    sessionStorage.setItem(loginKey, 'connected');
+  }
+
+  private removeSessionStorageKey(): void {
+    sessionStorage.clear();
+  }
+
+  private getSessionStorageItem(): boolean {
+    return sessionStorage.getItem(loginKey) === 'connected';
+  }
 
 }
