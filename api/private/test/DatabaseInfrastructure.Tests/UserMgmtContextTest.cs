@@ -1,8 +1,8 @@
+using Domain.Model;
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 using System.Linq;
 using System.Threading.Tasks;
-using UserMgmtContext.Model;
 
 namespace DatabaseInfrastructure.Tests
 {

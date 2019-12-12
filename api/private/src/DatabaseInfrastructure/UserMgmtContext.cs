@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using UserMgmtContext.Model;
+﻿using Domain.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace DatabaseInfrastructure
 {

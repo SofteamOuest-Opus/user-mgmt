@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace UserMgmtContext.Model
+namespace Domain.Model
 {
     public class Employee
     {
