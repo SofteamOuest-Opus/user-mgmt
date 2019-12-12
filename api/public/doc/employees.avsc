@@ -104,9 +104,9 @@
             }
         },
         {
-            "name": "function",
+            "name": "occupation",
             "type": {
-                "name": "Function",
+                "name": "Occupation",
                 "type": "record",
                 "fields": [{
                     "name": "id",

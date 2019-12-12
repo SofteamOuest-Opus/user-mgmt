@@ -87,8 +87,8 @@ components:
           $ref: "#/components/schemas/Manager"
         status:
           $ref: "#/components/schemas/Status"
-        function:
-          $ref: "#/components/schemas/Function"
+        occupation:
+          $ref: "#/components/schemas/Occupation"
         accessRights:
           type: array
           items: 
@@ -122,7 +122,7 @@ components:
         name:
           type: string
 
-    Function:
+    Occupation:
       properties:
         id:
           type: string
