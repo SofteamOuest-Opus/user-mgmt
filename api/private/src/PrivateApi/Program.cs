@@ -40,7 +40,7 @@ namespace PrivateApi
         internal static IWebHost MigrateDatabase(this IWebHost host)
         {
             using (var serviceScope = host.Services.CreateScope())
-            using (var context = serviceScope.ServiceProvider.GetService<UserMgmtContext.UserMgmtContext>())
+            using (var context = serviceScope.ServiceProvider.GetService<DatabaseInfrastructure.UserMgmtContext>())
             {
                 context.Database.Migrate();
             }

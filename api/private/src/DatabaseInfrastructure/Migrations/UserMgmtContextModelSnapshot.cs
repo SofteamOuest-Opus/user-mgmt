@@ -4,9 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using UserMgmtContext;
 
-namespace UserMgmtContext.Migrations
+namespace DatabaseInfrastructure.Migrations
 {
     [DbContext(typeof(UserMgmtContext))]
     partial class UserMgmtContextModelSnapshot : ModelSnapshot

@@ -28,7 +28,7 @@ namespace PrivateApi
             services.AddHealthChecks()
                 .AddNpgSql(Configuration.GetConnectionString("UserMgmtDatabase"));
 
-            services.AddDbContext<UserMgmtContext.UserMgmtContext>(options => 
+            services.AddDbContext<DatabaseInfrastructure.UserMgmtContext>(options => 
                 options.UseNpgsql(Configuration.GetConnectionString("UserMgmtDatabase")));
         }
 

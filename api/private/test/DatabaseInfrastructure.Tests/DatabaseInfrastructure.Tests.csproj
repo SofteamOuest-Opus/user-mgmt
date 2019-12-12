@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\UserMgmtContext\UserMgmtContext.csproj" />
+    <ProjectReference Include="..\..\src\DatabaseInfrastructure\DatabaseInfrastructure.csproj" />
   </ItemGroup>
 
 </Project>

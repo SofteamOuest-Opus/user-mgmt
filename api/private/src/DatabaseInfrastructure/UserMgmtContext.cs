@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UserMgmtContext.Model;
 
-namespace UserMgmtContext
+namespace DatabaseInfrastructure
 {
     public class UserMgmtContext : DbContext
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UserMgmtContext.Model;
 
-namespace Tests
+namespace DatabaseInfrastructure.Tests
 {
     public class UserMgmtContextTest
     {
@@ -14,12 +14,12 @@ namespace Tests
             public async Task Should_AddWritesToDatabase()
             {
                 // Arrange
-                var options = new DbContextOptionsBuilder<UserMgmtContext.UserMgmtContext>()
+                var options = new DbContextOptionsBuilder<UserMgmtContext>()
                     .UseInMemoryDatabase(databaseName: "Add_writes_to_database")
                     .Options;
 
                 // Act
-                using (var context = new UserMgmtContext.UserMgmtContext(options))
+                using (var context = new UserMgmtContext(options))
                 {
                     context.Add(new Employee
                     {
@@ -31,7 +31,7 @@ namespace Tests
                 }
 
                 // Assert
-                using (var context = new UserMgmtContext.UserMgmtContext(options))
+                using (var context = new UserMgmtContext(options))
                 {
                     Assert.AreEqual(1, context.Employees.Count());
                     Assert.AreEqual("Stephen", context.Employees.Single().FirstName);
