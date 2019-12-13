@@ -1,8 +1,8 @@
 <div *ngIf="employeeDisplay">
     <!-- row -->
     <div class="row pt-3  mb-4">
-        <div class="col-3 text-center">
-            <img src="assets/img/LogoUser.png">
+        <div class="col-6 text-center">
+                <img class="profile" src="assets/img/profile1.jpg">
         </div>
         <div class="col-6">
             <div class="mt-2">
@@ -12,7 +12,7 @@
             <div>{{employeeDisplay.office?.name | uppercase}}</div>
         </div>
     </div>
-    <!-- row - Occuptation - Status -->
+    <!-- row - Occupation - Status -->
     <div class="row mb-4">
         <div class="col-sm-12 text-center">
             <h5>{{employeeDisplay.occupation?.name}} - {{employeeDisplay.status?.name}}</h5>
@@ -46,7 +46,7 @@
     <!-- row - Button Edit -->
     <div class="text-center">
         <div class="col-sm-12 text-center">
-            <button type="submit" style="width: 160px;" class="btn btn-primary">Edit profile</button>
+            <a [routerLink]="'/employee/edit'" class="btn btn-primary button-width">Edit profile</a>
         </div>
     </div>
 </div>

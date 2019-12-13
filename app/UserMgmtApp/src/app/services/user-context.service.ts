@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Employee, Manager, Office, Status, Occupation } from '@models/index.ts';
+import { Employee, Manager, Office, Status, Occupation, EmployeeShort } from '@models/index.ts';
 
 
 @Injectable({
@@ -26,4 +26,8 @@ export class UserContextService {
       currentUserManager, currentUserHRManager, currentUserStatus, currentUserOccupation, currentUserAccessRights);
   }
 
+  public getCurrentUserShortInfos(): EmployeeShort {
+
+    return new EmployeeShort('Tiffany', 'Berry', 'tiffany.berry@softeam.fr');
+  }
 }

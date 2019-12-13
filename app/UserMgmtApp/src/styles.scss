@@ -5,6 +5,7 @@
 $color-purple: #817ffe;
 $color-background-header: #323b42;
 $color-background-footer: #323b42;
+$color-gris1: #cccccc;
 
 html,
 body {
@@ -19,7 +20,7 @@ body {
 }
 
 .navbar-custom {
-  color: #ffffff;
+  color: white;
   background-color: $color-background-header;
 }
 
@@ -58,4 +59,14 @@ footer {
 .btn-primary {
   background-color: $color-purple !important;
   border-color: $color-purple !important;
+}
+
+.button-width {
+  width: 160px;
+}
+
+.profile {
+  width: 150px;
+  border: 1px solid $color-gris1;
+  border-radius: 10px;
 }

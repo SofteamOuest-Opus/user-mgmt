@@ -13,7 +13,7 @@ export class AuthenticationService {
 
   setIsConnected(val: boolean) {
     this._isConnected = val;
-    console.log('_isConnected : ', this._isConnected);
+    // console.log('_isConnected : ', this._isConnected);
   }
 
   constructor() { }

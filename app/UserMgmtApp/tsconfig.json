@@ -6,7 +6,10 @@
       "@services/*": ["src/app/services/*"],
       "@components/*": ["src/app/components/*"],
       "@models/*": ["src/app/models/*"],
-      "@employee/*": ["src/app/modules/employee/*"]
+      "@employee/*": ["src/app/modules/employee/*"],
+      "@assets/*": ["src/assets/*"],
+      "@shared/*": ["src/app/modules/shared/*"],
+      
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
@@ -24,7 +27,7 @@
       "es2018",
       "dom"
     ],
-    
+    "resolveJsonModule": true,
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

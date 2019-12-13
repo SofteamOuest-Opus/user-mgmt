@@ -1,0 +1,17 @@
+$color-purple: #817ffe;
+$color-gris-fonce: #323b42;
+
+.input100 {
+  font-size: 18px;
+  height: 52px;
+  padding: 0 10px;
+  font-weight: bold;
+}
+
+a .edit-button {
+  color: $color-purple;
+}
+
+a:hover .edit-button {
+  color: $color-gris-fonce;
+}

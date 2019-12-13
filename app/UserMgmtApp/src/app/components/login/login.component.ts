@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
   }
 
   public onSubmit(event: Event): void {
-    console.log(this.loginForm.value);
     this.authenticationService.setIsConnected(true);
     this.router.navigate(['/employee']);
   }

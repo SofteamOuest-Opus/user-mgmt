@@ -1,0 +1,23 @@
+<div class="pt-3">
+    <div class="mb-3">
+        <input type="file" name="image" (change)="fileProgress($event)" />
+    </div>
+
+    <!-- Image preview -->
+    <div class="image-preview mb-3" *ngIf="previewUrl">
+        <img [src]="previewUrl" height="150" />
+    </div>
+    <!-- Buttons -->
+    <div class="mb-3" *ngIf="showButtons">
+        <button class="btn btn-primary mr-3" (click)="cancel()">Cancel</button>
+        <button class="btn btn-primary" (click)="onLoadFile()">Submit</button>
+    </div>
+</div>
+
+<!-- Messages de validation -->
+<div *ngIf="showErrMessage">
+    <div class="alert alert-danger" role="alert" id="error">
+        <strong>ERREUR</strong><br>
+        Vous devez sélectionner une image.
+    </div>
+</div>
