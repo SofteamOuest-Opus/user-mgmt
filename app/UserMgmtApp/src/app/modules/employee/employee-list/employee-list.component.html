@@ -1,4 +1,14 @@
-<div class="mt-3" *ngIf="employeeDisplayList">
+<div class="row form">
+    <div class="col-6">
+        <!-- Search -->
+        <input type="text" class="form-control" placeholder="TODO Search" />
+    </div>
+    <div class="col-6">
+        <!-- Filter -->
+        <input type="text" class="form-control" placeholder="TODO Filter" />
+    </div>
+</div>
+<div class="mt-4" *ngIf="employeeDisplayList">
     <div class="row mb-3" *ngFor="let employee of employeeDisplayList">
         <div class="col-4 text-center">
             <img class="profile-list" src={{baseUrl}}{{employee.photoUri}}>

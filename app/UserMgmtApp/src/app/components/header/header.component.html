@@ -1,8 +1,8 @@
 <!-- Header -->
-<div *ngIf="authenticationService.getConnected();else nonavbar">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbar-custom">
+<div *ngIf="authenticationService.getConnected();else noNavbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbar-custom" id="header">
         <div class="container">
-            <a class="navbar-brand" [routerLink]="['/employee']">
+            <a (click)="hideNavbarCollapse()" class="navbar-brand" [routerLink]="['/employee']">
                 <span><b>{{headerTitlePart1}}</b> {{headerTitlePart2}}</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -10,14 +10,14 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-                        <a class="nav-link" [routerLink]="['/employee']">Home<span class="sr-only"></span></a>
-                    </li>
-                    <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <ul class="navbar-nav ml-auto" (click)="hideNavbarCollapse()">
+                    <li class="nav-item" [routerLinkActive]="['active']">
                         <a class="nav-link" [routerLink]="['/employee/list']">Liste des employés</a>
                     </li>
-                    <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                    <li class="nav-item" [routerLinkActive]="['active']">
+                        <a class="nav-link" [routerLink]="['/todo']">todo</a>
+                    </li>
+                    <li class="nav-item" [routerLinkActive]="['active']">
                         <a class="nav-link" [routerLink]="['/todo']">todo</a>
                     </li>
                     <li class="nav-item">
@@ -28,8 +28,8 @@
         </div>
     </nav>
 </div>
-<ng-template #nonavbar>
-    <header>
+<ng-template #noNavbar>
+    <header id="header">
         <div class="container header-title">
             <span><b>{{headerTitlePart1}}</b> {{headerTitlePart2}}</span>
         </div>

@@ -21,6 +21,11 @@ export class HeaderComponent implements OnInit {
 
   }
 
+  public hideNavbarCollapse() {
+    let navbarCollapse = document.querySelector('.navbar-collapse');
+    navbarCollapse.classList.remove('show');
+  }
+
   public logout(): void {
     this.authenticationService.logOut();
     this.router.navigate(['/']);

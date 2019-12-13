@@ -8,7 +8,6 @@ import { Employee } from '@models/index.ts';
 })
 export class EmployeeListComponent implements OnInit {
 
-  //public photoName: string = `user1.png`;
   public baseUrl: string = `assets/img/`;
   public employeeDisplayList: Employee[] = [
     {
