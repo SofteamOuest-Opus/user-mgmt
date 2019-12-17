@@ -3,9 +3,12 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
 $color-purple: #817ffe;
-$color-background-header: #323b42;
-$color-background-footer: #323b42;
+$color-noir1: #323b42;
+$color-background-header: $color-noir1;
+$color-background-footer: $color-noir1;
 $color-gris1: #cccccc;
+$color-text: #403866;
+$color-input: #e6e6e6;
 
 html,
 body {
@@ -51,13 +54,28 @@ footer {
   padding: 8px;
 }
 
-.btn-primary {
+.btn-softeam {
+  color: white !important;
   background-color: $color-purple !important;
   border-color: $color-purple !important;
 }
 
+.btn-softeam:hover,
+.btn-softeam:focus,
+.btn-softeam:active,
+.btn-softeam.active,
+.open > .dropdown-toggle.btn-softeam {
+  color: #fff;
+  background-color: $color-text !important;
+  border-color: $color-text !important;
+}
+
 .button-width {
   width: 160px;
+}
+
+.button-login {
+  width: 120px;
 }
 
 .profile {
@@ -70,4 +88,13 @@ footer {
   width: 100px;
   border: 1px solid $color-gris1;
   border-radius: 10px;
+}
+
+// Media Queries => Mobiles style only
+@media only screen and (max-width: 600px) {
+  .button-login {
+    height: 30px;
+    width: 80px;
+    padding: 0 !important;
+  }
 }

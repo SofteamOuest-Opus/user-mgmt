@@ -17,8 +17,8 @@ export class HeaderComponent implements OnInit {
     private router: Router,
   ) { }
 
-  ngOnInit() {
-
+  public ngOnInit(): void {
+ 
   }
 
   public hideNavbarCollapse() {
@@ -30,4 +30,5 @@ export class HeaderComponent implements OnInit {
     this.authenticationService.logOut();
     this.router.navigate(['/']);
   }
+
 }
