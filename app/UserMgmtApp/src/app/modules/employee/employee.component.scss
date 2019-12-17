@@ -1,0 +1,86 @@
+$color-gris1: #cccccc;
+$arial: Arial !important;
+$arialBlack: "Arial Black" !important;
+
+
+// font-size: 2rem; //h2
+
+.profile-home {
+  width: 140px;
+  border: 1px solid $color-gris1;
+  border-radius: 10px;
+}
+
+.name-home {
+  padding-top: 10px;
+  font-size: 1.75rem; //h3
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.sub-title-home {
+  font-size: 1.5rem; //h4
+}
+
+.occupation-home {
+  font-family: $arial;
+  font-size: 1.75rem; //h3
+}
+
+.info-home {
+  font-size: 20px;
+}
+
+// Media queries 800px
+@media only screen and (max-width: 800px) {
+  .profile-home {
+    width: 120px;
+  }
+  .sub-title-home {
+    font-size: 1.25rem; //h5
+  }
+  .occupation-home {
+    font-size: 1.5rem; //h4
+  }
+  .info-home {
+    font-size: 18px;
+  }
+}
+
+// Media queries 600px
+@media only screen and (max-width: 600px) {
+  .profile-home {
+    width: 100px;
+  }
+  .name-home {
+    font-size: 1.5rem; //h4
+  }
+  .sub-title-home {
+    font-size: 1rem;
+  }
+  .occupation-home {
+    font-size: 1.25rem; //h5
+  }
+  .info-home {
+    font-size: 16px;
+  }
+}
+
+// Media queries 500px
+@media only screen and (max-width: 500px) {
+  .header-home {
+    padding-left: 10x !important;
+  }
+  .profile-home {
+    width: 80px;
+  }
+  .name-home {
+    padding-top: 5px;
+    margin: 0;
+    font-size: 1.25rem; //h5
+  }
+  .occupation-home {
+    font-size: 1.15rem;
+  }
+}

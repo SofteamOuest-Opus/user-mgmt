@@ -2,12 +2,28 @@ $color-text: #403866;
 $color-input: #e6e6e6;
 
 .login-form-title {
-  font-size: 28px;
+  font-size: 30px;
+  font-weight: bold;
+  padding-bottom: 50px;
   color: $color-text;
   line-height: 1.2;
   text-align: center;
   width: 100%;
   display: block;
+}
+
+// Media Queries => Mobiles style only
+@media only screen and (max-width: 600px) {
+  .login-form-title {
+    font-weight: normal;
+    padding-bottom: 0;
+    font-size: 28px;
+    color: $color-text;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
 }
 
 .wrap-input {

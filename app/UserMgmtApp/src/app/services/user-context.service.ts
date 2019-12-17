@@ -18,7 +18,7 @@ export class UserContextService {
     let currentUserOffice = new Office('1', 'Nantes');
     let currentUserManager: Manager = new Manager('1', 'Andrea', 'Porter');
     let currentUserHRManager: Manager = new Manager('2', 'Allan', 'Nichols');
-    let currentUserStatus: Status = new Status('1', 'Interne');
+    let currentUserStatus: Status = new Status('1', 'Stage');
     let currentUserOccupation: Occupation = new Occupation('1', 'Développeur');
     let currentUserAccessRights: string[] = ['Employee', 'Manager'];
 

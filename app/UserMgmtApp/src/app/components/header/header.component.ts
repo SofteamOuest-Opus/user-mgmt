@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
- 
+
   }
 
   public hideNavbarCollapse() {

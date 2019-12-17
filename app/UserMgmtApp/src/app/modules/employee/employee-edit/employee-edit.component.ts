@@ -18,7 +18,7 @@ export class EmployeeEditComponent implements OnInit {
   public showImgEditForm: boolean = false;
   public employeeEdit: EmployeeShort;
 
-  public photoName: string = `profile1.jpg`;
+  public photoName: string = `user1.png`;
   public photoUrl: string = `assets/img/${this.photoName}`;
 
   constructor(

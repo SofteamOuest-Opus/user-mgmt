@@ -12,6 +12,7 @@ import { Employee } from '@models/index.ts';
 export class EmployeeComponent implements OnInit {
 
   public employeeDisplay: Employee;
+  public pathImage: string = 'assets/img/user1.png';
 
   constructor(
     private userContextService: UserContextService,

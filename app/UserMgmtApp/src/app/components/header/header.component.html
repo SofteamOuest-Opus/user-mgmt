@@ -11,17 +11,20 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto" (click)="hideNavbarCollapse()">
-                    <li class="nav-item" [routerLinkActive]="['active']">
+                    <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                        <a class="nav-link" [routerLink]="['/employee']">Home</a>
+                    </li>
+                    <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                         <a class="nav-link" [routerLink]="['/employee/list']">Liste des employés</a>
                     </li>
-                    <li class="nav-item" [routerLinkActive]="['active']">
+                    <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                         <a class="nav-link" [routerLink]="['/todo']">todo</a>
                     </li>
-                    <li class="nav-item" [routerLinkActive]="['active']">
+                    <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
                         <a class="nav-link" [routerLink]="['/todo']">todo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" (click)="logout()">LogOut</a>
+                        <a class="nav-link" (click)="logout()">Logout</a>
                     </li>
                 </ul>
             </div>

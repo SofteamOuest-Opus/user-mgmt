@@ -1,52 +1,53 @@
 <div *ngIf="employeeDisplay">
-    <!-- row -->
-    <div class="row pt-3  mb-4">
-        <div class="col-6 text-center">
-                <img class="profile" src="assets/img/profile1.jpg">
+    <!-- row Image +  Infos User-->
+    <div class="row pt-3">
+        <div class="col-xl-2 col-lg-3 col-md-3 col-sm-4 col-4  text-center">
+            <img class="profile-home" [src]='pathImage'>
         </div>
-        <div class="col-6">
-            <div class="mt-2">
-                <h4>{{employeeDisplay.firstName}} {{employeeDisplay.lastName | uppercase}}</h4>
+        <div class="col-xl-10  col-lg-9 col-md-9 col-sm-8 col-8 header-home">
+            <div class="name-home">
+                <span>{{employeeDisplay.firstName}} {{employeeDisplay.lastName | uppercase}}</span>
             </div>
-            <div>{{employeeDisplay.email}}</div>
-            <div>{{employeeDisplay.office?.name | uppercase}}</div>
+            <div class="sub-title-home">
+                <span>{{employeeDisplay.email}}</span><br>
+                <span>{{employeeDisplay.office?.name}}</span>
+            </div>
         </div>
     </div>
     <!-- row - Occupation - Status -->
-    <div class="row mb-4">
-        <div class="col-sm-12 text-center">
-            <h5>{{employeeDisplay.occupation?.name}} - {{employeeDisplay.status?.name}}</h5>
+    <div class="row pt-3">
+        <div class="col-12 occupation-home">
+            <span>{{employeeDisplay.occupation?.name}} - {{employeeDisplay.status?.name}}</span>
         </div>
     </div>
     <!-- row - Date entrée -->
-    <div class="row mb-2">
-        <div class="col-sm-12">
-            Date d'entrée : <b>{{employeeDisplay.hiringDate | date: 'dd/MM/yyyy'}}</b>
+    <div class="row pt-3">
+        <div class="col-12 info-home">
+            Date d'entrée : {{employeeDisplay.hiringDate | date: 'dd/MM/yyyy'}}
         </div>
     </div>
     <!-- row - Manager -->
-    <div class="row mb-2">
-        <div class="col-sm-12">
-            Manager : <b>{{employeeDisplay.manager?.firstName}} {{employeeDisplay.manager?.lastName | uppercase}}</b>
+    <div class="row pt-2">
+        <div class="col-12 info-home">
+            Manager : {{employeeDisplay.manager?.firstName}} {{employeeDisplay.manager?.lastName | uppercase}}
         </div>
     </div>
     <!-- row - HR Manager -->
-    <div class="row mb-2">
-        <div class="col-sm-12">
-            HR Manager : <b>{{employeeDisplay.humanResourceManager?.firstName}}
-                {{employeeDisplay.humanResourceManager?.lastName | uppercase}}</b>
+    <div class="row pt-2">
+        <div class="col-12 info-home">
+            HR Manager : {{employeeDisplay.humanResourceManager?.firstName}} {{employeeDisplay.humanResourceManager?.lastName | uppercase}}
         </div>
     </div>
     <!-- row - Accès-->
-    <div class="row mb-5">
-        <div class="col-sm-12">
-            Accès : <b>{{employeeDisplay.accessRights.toString()}}</b>
+    <div class="row pt-2">
+        <div class="col-12 info-home">
+            Accès : {{employeeDisplay.accessRights.toString()}}
         </div>
     </div>
     <!-- row - Button Edit -->
-    <div class="text-center">
-        <div class="col-sm-12 text-center">
-            <a [routerLink]="'/employee/edit'" class="btn btn-primary button-width">Edit profile</a>
+    <div class="row pt-4 mb-4">
+        <div class="col-12 text-center">
+            <a [routerLink]="'/employee/edit'" class="btn btn-softeam button-width">Edit profile</a>
         </div>
     </div>
 </div>
