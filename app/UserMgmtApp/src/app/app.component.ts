@@ -27,9 +27,7 @@ export class AppComponent implements OnInit {
 
   public ngAfterViewInit(): void {
     this.getContainerHeight();
-    // Add style
-    let minHeight: string = `${this.containerMinHeightCalculated}px`;
-    (document.querySelector('#sd-container') as HTMLElement).style.minHeight = minHeight;
+    this.setCssStyle();
   }
 
   @HostListener('window:resize', ['$event'])
@@ -79,6 +77,11 @@ export class AppComponent implements OnInit {
     if (screenWidth > 1200) {
       console.log(screenWidth, ' --> xl');
     }
+  }
+
+  private setCssStyle(): void {
+    let minHeight: string = `${this.containerMinHeightCalculated}px`;
+    (document.querySelector('#sd-container') as HTMLElement).style.minHeight = minHeight;
   }
 
 }

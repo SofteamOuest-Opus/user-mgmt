@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms'
+import { FormControl, FormGroup } from '@angular/forms';
 import { AuthenticationService } from '@services/authentication.service';
 import { Router } from '@angular/router';
-import { HostListener } from "@angular/core";
+
+
+const containerHeightKey: string = 'containerHeightKey';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +13,7 @@ import { HostListener } from "@angular/core";
 })
 export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
-  public loginFormHeightPosition: string = '0';
-  private screenHeight: number = 0;
+  private contentHeight: number = 0;
 
   constructor(
     private authenticationService: AuthenticationService,
@@ -20,12 +21,7 @@ export class LoginComponent implements OnInit {
 
   ) {
     this.loginForm = this.createFormGroup();
-  }
-
-  @HostListener('window:resize', ['$event'])
-  getScreenSize(event?) {
-    this.screenHeight = window.innerHeight;
-    this.getLoginFormPosition(this.screenHeight);
+    this.getContentHeight();
   }
 
   public createFormGroup(): FormGroup {
@@ -36,30 +32,32 @@ export class LoginComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.getScreenSize();
+    this.setLoginFormPosition();
   }
+
 
   public onSubmit(event: Event): void {
     this.authenticationService.setConnected();
     this.router.navigate(['/employee']);
   }
 
-  private getLoginFormPosition(heightScreen: number) {
+  private setLoginFormPosition(): void {
 
     let loginFormElement: HTMLElement = document.getElementById("loginForm");
     let loginFormElementHeight: number = loginFormElement.offsetHeight;
 
-    let headerElement: HTMLElement = document.getElementById("header");
-    let headerElementHeight: number = headerElement.offsetHeight;
+    // --- login form vertical position: ( Content height - Login Form Height ) / 2
+    let loginFormPositionCalculated: number = (this.contentHeight - loginFormElementHeight) / 2;
 
-    let footerElement: HTMLElement = document.getElementById("footer");
-    let footerElementHeight: number = footerElement.offsetHeight;
-
-    let loginFormPositionCalculated: number = (((this.screenHeight - loginFormElementHeight) - headerElementHeight) - footerElementHeight);
-    loginFormPositionCalculated = loginFormPositionCalculated / 2;
-
-    if (loginFormPositionCalculated > 0)
-      this.loginFormHeightPosition = `${loginFormPositionCalculated}px`;
-
+    if (loginFormPositionCalculated > 0) {
+      let paddingTop: string = `${loginFormPositionCalculated}px`;
+      (document.querySelector('#loginForm') as HTMLElement).style.paddingTop = paddingTop;
+    }
   }
+
+  private getContentHeight(): void {
+    if (sessionStorage.getItem(containerHeightKey))
+      this.contentHeight = +sessionStorage.getItem(containerHeightKey);
+  }
+
 }

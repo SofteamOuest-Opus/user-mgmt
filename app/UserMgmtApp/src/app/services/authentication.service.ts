@@ -35,7 +35,7 @@ export class AuthenticationService {
   }
 
   private removeSessionStorageKey(): void {
-    sessionStorage.clear();
+    sessionStorage.removeItem(loginKey);
   }
 
   private getSessionStorageItem(): boolean {
