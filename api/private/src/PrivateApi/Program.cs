@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
 
@@ -13,7 +13,7 @@ namespace PrivateApi
         {
             try
             {
-                CreateWebHostBuilder(args)
+                CreateHostBuilder(args)
                     .Build()
                     .MigrateDatabase()
                     .Run();
@@ -24,20 +24,24 @@ namespace PrivateApi
             }
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .ConfigureLogging(logging =>
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    logging.ClearProviders();
-                    logging.SetMinimumLevel(LogLevel.Trace);
-                })
-                .UseNLog();
+                    webBuilder
+                        .UseStartup<Startup>()
+                        .ConfigureLogging(logging =>
+                        {
+                            logging.ClearProviders();
+                            logging.SetMinimumLevel(LogLevel.Trace);
+                        })
+                        .UseNLog();
+                });
     }
 
     internal static class Extensions
     {
-        internal static IWebHost MigrateDatabase(this IWebHost host)
+        internal static IHost MigrateDatabase(this IHost host)
         {
             using (var serviceScope = host.Services.CreateScope())
             using (var context = serviceScope.ServiceProvider.GetService<DatabaseInfrastructure.UserMgmtContext>())
@@ -46,6 +50,5 @@ namespace PrivateApi
             }
             return host;
         }
-
     }
 }

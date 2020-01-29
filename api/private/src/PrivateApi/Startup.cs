@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
@@ -24,7 +25,8 @@ namespace PrivateApi
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddControllers();
+
             services.AddHealthChecks()
                 .AddNpgSql(Configuration.GetConnectionString("UserMgmtDatabase"));
 
@@ -32,7 +34,7 @@ namespace PrivateApi
                 options.UseNpgsql(Configuration.GetConnectionString("UserMgmtDatabase")));
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -44,8 +46,13 @@ namespace PrivateApi
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
-            app.UseHealthChecks("/healthz");
+
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints => {
+                endpoints.MapControllers();
+                endpoints.MapHealthChecks("/healthz");
+            });
         }
     }
 }

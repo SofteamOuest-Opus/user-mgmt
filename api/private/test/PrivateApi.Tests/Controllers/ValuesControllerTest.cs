@@ -6,7 +6,9 @@ namespace PrivateApi.Tests.Controllers
 {
     public class ValuesControllerTest
     {
+#nullable disable
         protected ValuesController ControllerUnderTest;
+#nullable restore
 
         [SetUp]
         public void Setup()
