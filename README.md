@@ -43,7 +43,7 @@ To run, the applications require:
 - a Keycloak instance for authentication (TODO)
 - a Apache Kafka instance for messaging (TODO)
 
-A local development infrastructure, with a default setup, can be spun up quickly with Docker. Just replace ****** the passwords of your choice in `infrastructure/docker-compose.yaml`,
+A local development infrastructure, with a default setup, can be spun up quickly with Docker. Just replace \*\*\*\*\*\* with the passwords of your choice,
 
 And then:
 ```powershell
@@ -73,7 +73,7 @@ docker-compose --file infrastructure/docker-compose.yaml --project-name user_mgm
 More comprehensive instructions for running and building the private API can be found 
 in the [`api/private/` directory](./api/private/README.md).
 
-Database credentials for the apps are configured in `appsettings.json` (remember to replace the ****** with the previously chosen password)
+Database credentials for the apps are configured in `appsettings.*.json` (remember to replace the \*\*\*\*\*\* with the previously chosen password)
 
 #### Run locally
 

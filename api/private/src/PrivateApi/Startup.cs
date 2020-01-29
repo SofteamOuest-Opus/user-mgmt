@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutoMapper;
+using DatabaseInfrastructure.Mapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,6 +28,8 @@ namespace PrivateApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSingleton(new MapperConfiguration(cfg => cfg.AddProfile<EntityMapperProfile>()).CreateMapper());
 
             services.AddHealthChecks()
                 .AddNpgSql(Configuration.GetConnectionString("UserMgmtDatabase"));

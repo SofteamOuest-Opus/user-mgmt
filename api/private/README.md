@@ -21,7 +21,7 @@ TODO
 
 TODO
 
-Design-time configuration and credentials for the apps are configured in `UserMgmtContextFactory` (remember to replace the ****** with the previously chosen password)
+Design-time configuration and credentials for the apps are configured in `UserMgmtContextFactory` (remember to replace the \*\*\*\*\*\* with the previously chosen password)
 
 ```powershell
 dotnet ef migrations add InitialCreate

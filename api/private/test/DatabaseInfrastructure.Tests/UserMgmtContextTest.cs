@@ -8,7 +8,7 @@ namespace DatabaseInfrastructure.Tests
 {
     public class UserMgmtContextTest
     {
-        public class Add : UserMgmtContextTest
+        internal class Add : UserMgmtContextTest
         {
             [Test]
             public async Task Should_AddWritesToDatabase()
