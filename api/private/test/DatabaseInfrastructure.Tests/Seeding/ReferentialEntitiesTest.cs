@@ -3,27 +3,24 @@ using DatabaseInfrastructure.Mapper;
 using DatabaseInfrastructure.Seeding;
 using Domain.Referential;
 using FluentAssertions;
-using NUnit.Framework;
+using Xunit;
 using System.Linq;
 
 namespace DatabaseInfrastructure.Tests.Seeding
 {
     public class ReferentialEntitiesTest
     {
-#nullable disable
         protected IMapper mapper;
-#nullable restore
 
-        [SetUp]
-        public void Setup()
+        public ReferentialEntitiesTest()
         {
             var config = new MapperConfiguration(cfg => cfg.AddProfile<EntityMapperProfile>());
             mapper = config.CreateMapper();
         }
 
-        internal class Occupations : ReferentialEntitiesTest
+        public class Occupations : ReferentialEntitiesTest
         {
-            [Test]
+            [Fact]
             public void Should_ReturnDefaultOccupations()
             {
                 // Arrange

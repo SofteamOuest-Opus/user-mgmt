@@ -1,6 +1,6 @@
 using DatabaseInfrastructure.Entities;
 using Microsoft.EntityFrameworkCore;
-using NUnit.Framework;
+using Xunit;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,9 +8,9 @@ namespace DatabaseInfrastructure.Tests
 {
     public class UserMgmtContextTest
     {
-        internal class Add : UserMgmtContextTest
+        public class Add : UserMgmtContextTest
         {
-            [Test]
+            [Fact]
             public async Task Should_AddWritesToDatabase()
             {
                 // Arrange
@@ -33,8 +33,8 @@ namespace DatabaseInfrastructure.Tests
                 // Assert
                 using (var context = new UserMgmtContext(options))
                 {
-                    Assert.AreEqual(1, context.Employees.Count());
-                    Assert.AreEqual("Stephen", context.Employees.Single().FirstName);
+                    Assert.Equal(1, context.Employees.Count());
+                    Assert.Equal("Stephen", context.Employees.Single().FirstName);
                 }
             }
         }

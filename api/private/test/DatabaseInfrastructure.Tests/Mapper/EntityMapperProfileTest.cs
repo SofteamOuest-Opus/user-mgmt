@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using DatabaseInfrastructure.Mapper;
-using NUnit.Framework;
+using Xunit;
 
 namespace DatabaseInfrastructure.Tests.Mapper
 {
     public class EntityMapperProfileTest
     {
-        internal class Constructor: EntityMapperProfileTest
+        public class Constructor: EntityMapperProfileTest
         {
-            [Test]
+            [Fact]
             public void Should_ConfigureMapper()
             {
                 // Act
