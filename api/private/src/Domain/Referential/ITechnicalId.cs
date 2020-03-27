@@ -4,6 +4,6 @@ namespace Domain.Referential
 {
     public interface ITechnicalId
     {
-        Guid TechnicalId { get; set; }
+        Guid? TechnicalId { get; set; }
     }
 }

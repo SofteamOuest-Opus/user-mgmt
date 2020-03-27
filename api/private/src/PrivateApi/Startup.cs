@@ -1,18 +1,14 @@
 ﻿using AutoMapper;
 using DatabaseInfrastructure.Mapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using DatabaseInfrastructure.Repository;
+using Domain.Persistence;
+using Domain.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace PrivateApi
 {
@@ -29,12 +25,18 @@ namespace PrivateApi
         {
             services.AddControllers();
 
+            services.AddScoped<IEmployeeService, EmployeeService>();
+
+            services.AddScoped<EmployeeRepository>();
+            services.AddScoped<IReadEmployee>(sp => sp.GetService<EmployeeRepository>());
+            services.AddScoped<IWriteEmployee>(sp => sp.GetService<EmployeeRepository>());
+
             services.AddSingleton(new MapperConfiguration(cfg => cfg.AddProfile<EntityMapperProfile>()).CreateMapper());
 
             services.AddHealthChecks()
                 .AddNpgSql(Configuration.GetConnectionString("UserMgmtDatabase"));
 
-            services.AddDbContext<DatabaseInfrastructure.UserMgmtContext>(options => 
+            services.AddDbContext<DatabaseInfrastructure.UserMgmtContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("UserMgmtDatabase")));
         }
 
@@ -53,7 +55,8 @@ namespace PrivateApi
 
             app.UseRouting();
 
-            app.UseEndpoints(endpoints => {
+            app.UseEndpoints(endpoints =>
+            {
                 endpoints.MapControllers();
                 endpoints.MapHealthChecks("/healthz");
             });

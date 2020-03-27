@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Model
 {
-    public class Employee
+    public class Employee : ICloneable
     {
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
         [Required]
         public string? LastName { get; set; }
         [Required]
@@ -18,5 +18,10 @@ namespace Domain.Model
         public Manager? HumanResourceManager { get; set; }
         public Status? Status { get; set; }
         public Occupation? Occupation { get; set; }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
     }
 }
