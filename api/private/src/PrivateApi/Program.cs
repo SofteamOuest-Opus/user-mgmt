@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
+using System;
 
 namespace PrivateApi
 {
@@ -45,7 +46,15 @@ namespace PrivateApi
             using (var serviceScope = host.Services.CreateScope())
             using (var context = serviceScope.ServiceProvider.GetService<DatabaseInfrastructure.UserMgmtContext>())
             {
-                context.Database.Migrate();
+                try
+                {
+                    context.Database.Migrate();
+                }
+                catch(Exception ex)
+                {
+                    var loggerFactory = host.Services.GetService<ILoggerFactory>();
+                    loggerFactory.CreateLogger<Program>().LogCritical(ex, "Could not migrate database");
+                }
             }
             return host;
         }
