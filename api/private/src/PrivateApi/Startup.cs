@@ -9,20 +9,35 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace PrivateApi
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
             Configuration = configuration;
+            Environment = environment;
         }
 
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment Environment { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            if (Environment.IsDevelopment())
+            {
+                services.AddCors(options =>
+                {
+                    options.AddDefaultPolicy(policy =>
+                    {
+                        policy.AllowAnyHeader().AllowAnyMethod();
+                        policy.SetIsOriginAllowed(origin => IsLocalhost(origin));
+                    });
+                });
+            }
+
             services.AddControllers();
 
             services.AddScoped<IEmployeeService, EmployeeService>();
@@ -40,6 +55,9 @@ namespace PrivateApi
                 options.UseNpgsql(Configuration.GetConnectionString("UserMgmtDatabase")));
         }
 
+        private static bool IsLocalhost(string origin) =>
+            string.Equals("localhost", new Uri(origin).Host, StringComparison.InvariantCultureIgnoreCase);
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -54,6 +72,8 @@ namespace PrivateApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseEndpoints(endpoints =>
             {
