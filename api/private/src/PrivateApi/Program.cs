@@ -1,14 +1,11 @@
 ﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
-using System;
 
 namespace PrivateApi
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {
@@ -16,7 +13,6 @@ namespace PrivateApi
             {
                 CreateHostBuilder(args)
                     .Build()
-                    .MigrateDatabase()
                     .Run();
             }
             finally
@@ -37,26 +33,5 @@ namespace PrivateApi
                     logging.SetMinimumLevel(LogLevel.Trace);
                 })
                 .UseNLog();
-    }
-
-    internal static class Extensions
-    {
-        internal static IHost MigrateDatabase(this IHost host)
-        {
-            using (var serviceScope = host.Services.CreateScope())
-            using (var context = serviceScope.ServiceProvider.GetService<DatabaseInfrastructure.UserMgmtContext>())
-            {
-                try
-                {
-                    context.Database.Migrate();
-                }
-                catch(Exception ex)
-                {
-                    var loggerFactory = host.Services.GetService<ILoggerFactory>();
-                    loggerFactory.CreateLogger<Program>().LogCritical(ex, "Could not migrate database");
-                }
-            }
-            return host;
-        }
     }
 }

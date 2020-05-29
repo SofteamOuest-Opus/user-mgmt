@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PrivateApi.Services;
 using System;
 
 namespace PrivateApi
@@ -53,6 +54,8 @@ namespace PrivateApi
 
             services.AddDbContext<DatabaseInfrastructure.UserMgmtContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("UserMgmtDatabase")));
+
+            services.AddHostedService<MigrateDatabaseService>();
         }
 
         private static bool IsLocalhost(string origin) =>
