@@ -7,11 +7,8 @@ info:
     name: MIT
     url: https://github.com/SofteamOuest-Opus/user-mgmt/blob/master/LICENSE
 servers:
-  - url: http://user-mgmt.k8-dev.wildwidewest.xyz/api/private
-    description: Integration server  
   - url: https://localhost:44312
-    description: Local server  
-
+    description: Local server (https)
 paths:
   /employees:
     get:
@@ -21,10 +18,9 @@ paths:
         '200':
           description: Success
           content:
-            application/json:    
+            'application/json':    
               schema:
                 $ref: "#/components/schemas/Employees"
-
   /employee/{id}:
     get:
       summary: Info for a specific employee
@@ -40,7 +36,7 @@ paths:
         '200':
           description: Success
           content:
-            application/json:    
+            'application/json':    
               schema:
                 $ref: "#/components/schemas/Employee"
         '404':
@@ -55,49 +51,48 @@ paths:
           description: The id of employee to create or update
           schema:
             type: string
-        - name: query
-          in: body
-          required: true
-          description: Employee info
-          schema:
-            $ref: "#/components/schemas/Employee"
+      requestBody:
+        required: true
+        description: Employee info
+        content:
+          'application/json':    
+            schema:
+              $ref: "#/components/schemas/Employee"
       responses:
         '200':
           description: Update successful
           content:
-            application/json:    
+            'application/json':    
               schema:
                 $ref: "#/components/schemas/Employee"
         '201':
           description: Create successful
           content:
-            application/json:    
+            'application/json':    
               schema:
                 $ref: "#/components/schemas/Employee"
         '400':
           description: Invalid id or employee info
-
   /employee:
     post:
       summary: Create a new employee
       operationId: createEmployee
-      parameters:
-        - name: query
-          in: body
-          required: true
-          description: Employee info
-          schema:
-            $ref: "#/components/schemas/Employee"
+      requestBody:
+        required: true
+        description: Employee info
+        content:
+          'application/json':    
+            schema:
+              $ref: "#/components/schemas/Employee"
       responses:
         '201':
           description: Creation successful
           content:
-            application/json:    
+            'application/json':    
               schema:
                 $ref: "#/components/schemas/Employee"
         '400':
           description: Invalid employee info
-
 components:
   schemas:
     Employee:
@@ -130,12 +125,10 @@ components:
           type: array
           items: 
             type: string
-
     Employees:
       type: array
       items:
         $ref: "#/components/schemas/Employee"
-
     Manager:
       required:
         - id
@@ -146,7 +139,6 @@ components:
           type: string
         firstName:
           type: string
-
     Office:
       required:
         - id
@@ -155,7 +147,6 @@ components:
           type: string
         name:
           type: string
-
     Status:
       required:
         - id
@@ -164,7 +155,6 @@ components:
           type: string
         name:
           type: string
-
     Occupation:
       required:
         - id
@@ -173,7 +163,6 @@ components:
           type: string
         name:
           type: string
-
     EmployeeSearch:
       properties:
         id:

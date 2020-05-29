@@ -1,21 +1,18 @@
-﻿using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
 
 namespace PrivateApi
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {
             try
             {
-                CreateWebHostBuilder(args)
+                CreateHostBuilder(args)
                     .Build()
-                    .MigrateDatabase()
                     .Run();
             }
             finally
@@ -24,28 +21,20 @@ namespace PrivateApi
             }
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .ConfigureLogging(logging =>
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    logging.ClearProviders();
-                    logging.SetMinimumLevel(LogLevel.Trace);
+                    webBuilder.UseStartup<Startup>();
                 })
+                .ConfigureLogging(ResetLoggingDefaults)
                 .UseNLog();
-    }
 
-    internal static class Extensions
-    {
-        internal static IWebHost MigrateDatabase(this IWebHost host)
+        private static void ResetLoggingDefaults(ILoggingBuilder logging)
         {
-            using (var serviceScope = host.Services.CreateScope())
-            using (var context = serviceScope.ServiceProvider.GetService<UserMgmtContext.UserMgmtContext>())
-            {
-                context.Database.Migrate();
-            }
-            return host;
+            // remove ASP.NET default providers 
+            logging.ClearProviders();
+            logging.SetMinimumLevel(LogLevel.Trace);
         }
-
     }
 }
