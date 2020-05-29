@@ -27,11 +27,14 @@ namespace PrivateApi
                 {
                     webBuilder.UseStartup<Startup>();
                 })
-                .ConfigureLogging(logging =>
-                {
-                    logging.ClearProviders();
-                    logging.SetMinimumLevel(LogLevel.Trace);
-                })
+                .ConfigureLogging(ResetLoggingDefaults)
                 .UseNLog();
+
+        private static void ResetLoggingDefaults(ILoggingBuilder logging)
+        {
+            // remove ASP.NET default providers 
+            logging.ClearProviders();
+            logging.SetMinimumLevel(LogLevel.Trace);
+        }
     }
 }

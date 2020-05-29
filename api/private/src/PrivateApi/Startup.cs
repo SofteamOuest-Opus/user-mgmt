@@ -4,6 +4,7 @@ using DatabaseInfrastructure.Repository;
 using Domain.Persistence;
 using Domain.Services;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -29,14 +30,7 @@ namespace PrivateApi
         {
             if (Environment.IsDevelopment())
             {
-                services.AddCors(options =>
-                {
-                    options.AddDefaultPolicy(policy =>
-                    {
-                        policy.AllowAnyHeader().AllowAnyMethod();
-                        policy.SetIsOriginAllowed(origin => IsLocalhost(origin));
-                    });
-                });
+                services.AddCors(SetupCorsOptions);
             }
 
             services.AddControllers();
@@ -57,9 +51,6 @@ namespace PrivateApi
 
             services.AddHostedService<MigrateDatabaseService>();
         }
-
-        private static bool IsLocalhost(string origin) =>
-            string.Equals("localhost", new Uri(origin).Host, StringComparison.InvariantCultureIgnoreCase);
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -82,6 +73,20 @@ namespace PrivateApi
             {
                 endpoints.MapControllers();
                 endpoints.MapHealthChecks("/healthz");
+            });
+        }
+
+        private static void SetupCorsOptions(CorsOptions options)
+        {
+            static string GetHost(string uri) => new Uri(uri).Host;
+
+            static bool IsLocalhost(string origin) =>
+                string.Equals("localhost", GetHost(origin), StringComparison.InvariantCultureIgnoreCase);
+
+            options.AddDefaultPolicy(policy =>
+            {
+                policy.AllowAnyHeader().AllowAnyMethod();
+                policy.SetIsOriginAllowed(origin => IsLocalhost(origin));
             });
         }
     }
